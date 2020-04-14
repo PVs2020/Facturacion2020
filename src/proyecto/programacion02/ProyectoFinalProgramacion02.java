@@ -1,6 +1,7 @@
 
 package proyecto.programacion02;
 
+import proyecto.programacion02.views.Login;
 import proyecto.programacion02.views.Principal;
 
 /**
@@ -14,8 +15,12 @@ public class ProyectoFinalProgramacion02 {
      */
     public static void main(String[] args) {
         Principal.theme();
-        Principal prin = new Principal();
-        prin.setVisible(true);
+        
+        Login logo = new Login();
+        logo.setVisible(true);
+        
+        //Principal prin = new Principal();
+       // prin.setVisible(true);
         
     }
     

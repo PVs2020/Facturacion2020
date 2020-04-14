@@ -32,6 +32,22 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         winCrearCuenta = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido1 = new javax.swing.JTextField();
+        txtPassConfirm = new javax.swing.JPasswordField();
+        txtPass = new javax.swing.JPasswordField();
+        btnOk = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtApellido2 = new javax.swing.JTextField();
+        fondo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -41,6 +57,124 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnCrearCliente = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
+
+        winCrearCuenta.setUndecorated(true);
+        winCrearCuenta.getContentPane().setLayout(null);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Registrese");
+        winCrearCuenta.getContentPane().add(jLabel5);
+        jLabel5.setBounds(320, 20, 210, 40);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText(" Nombre: ");
+        winCrearCuenta.getContentPane().add(jLabel6);
+        jLabel6.setBounds(80, 100, 90, 40);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Primer Apellido:");
+        winCrearCuenta.getContentPane().add(jLabel7);
+        jLabel7.setBounds(400, 120, 130, 20);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel3.setText("Segundo Apellido:");
+        winCrearCuenta.getContentPane().add(jLabel3);
+        jLabel3.setBounds(380, 180, 150, 30);
+
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(txtCorreo);
+        txtCorreo.setBounds(540, 250, 160, 30);
+
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(txtNombre);
+        txtNombre.setBounds(170, 110, 160, 30);
+
+        txtApellido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellido1ActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(txtApellido1);
+        txtApellido1.setBounds(540, 110, 160, 30);
+
+        txtPassConfirm.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtPassConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassConfirmActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(txtPassConfirm);
+        txtPassConfirm.setBounds(170, 260, 160, 30);
+
+        txtPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(txtPass);
+        txtPass.setBounds(170, 180, 160, 30);
+
+        btnOk.setText("Aceptar");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(btnOk);
+        btnOk.setBounds(440, 330, 140, 40);
+
+        btnCerrar.setText("Cancelar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(btnCerrar);
+        btnCerrar.setBounds(640, 330, 140, 40);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel8.setText("<html>Confirmar Contraseña:<html>");
+        winCrearCuenta.getContentPane().add(jLabel8);
+        jLabel8.setBounds(50, 240, 100, 50);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel10.setText("Correo: ");
+        winCrearCuenta.getContentPane().add(jLabel10);
+        jLabel10.setBounds(460, 250, 70, 30);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel9.setText("Contraseña:");
+        winCrearCuenta.getContentPane().add(jLabel9);
+        jLabel9.setBounds(50, 180, 100, 30);
+
+        txtApellido2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellido2ActionPerformed(evt);
+            }
+        });
+        winCrearCuenta.getContentPane().add(txtApellido2);
+        txtApellido2.setBounds(540, 180, 160, 30);
+
+        fondo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/000000.jpg"))); // NOI18N
+        winCrearCuenta.getContentPane().add(fondo);
+        fondo.setBounds(0, -320, 1590, 730);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -52,6 +186,11 @@ public class Login extends javax.swing.JFrame {
 
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnAceptar.setText("Iniciar sesión");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAceptar);
         btnAceptar.setBounds(199, 495, 170, 40);
 
@@ -123,14 +262,64 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
-        winCrearCuenta.setSize(670, 450);
+        winCrearCuenta.setSize(882, 407);
         winCrearCuenta.setTitle("Crear Cuenta");
         winCrearCuenta.setVisible(true);
+        winCrearCuenta.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnCrearClienteActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        Principal prin = new Principal();
+        prin.setVisible(true);
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellido1ActionPerformed
+
+    private void txtPassConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassConfirmActionPerformed
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+
+        String pass = new String (txtPass.getPassword());
+        String passConf = new String (txtPassConfirm.getPassword());
+
+        if(passConf.equals(pass)){
+
+            JOptionPane.showMessageDialog(null, "Contraseña Correcta");
+
+        }else {
+
+            JOptionPane.showMessageDialog(null, "contraseña incorrecta");
+
+        }
+    }//GEN-LAST:event_btnOkActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        winCrearCuenta.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellido2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,13 +359,29 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnCrearCliente;
+    private javax.swing.JButton btnOk;
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFondo;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField txtApellido1;
+    private javax.swing.JTextField txtApellido2;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JPasswordField txtPassConfirm;
     private javax.swing.JTextField txtUsuario;
     private javax.swing.JDialog winCrearCuenta;
     // End of variables declaration//GEN-END:variables
