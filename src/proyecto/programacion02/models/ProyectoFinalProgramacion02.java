@@ -1,5 +1,5 @@
 
-package proyecto.programacion02;
+package proyecto.programacion02.models;
 
 import proyecto.programacion02.views.Login;
 import proyecto.programacion02.views.Principal;

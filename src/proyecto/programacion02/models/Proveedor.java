@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.programacion02;
+package proyecto.programacion02.models;
 
 /**
  *
