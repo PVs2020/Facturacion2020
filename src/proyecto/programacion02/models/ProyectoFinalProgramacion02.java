@@ -1,6 +1,7 @@
 
 package proyecto.programacion02.models;
 
+import proyecto.programacion02.controllers.Conexion;
 import proyecto.programacion02.views.Login;
 import proyecto.programacion02.views.Principal;
 
@@ -21,6 +22,10 @@ public class ProyectoFinalProgramacion02 {
         
         Principal prin = new Principal();
         prin.setVisible(true);
+        Conexion.setServidor(1);
+      Conexion c = new Conexion();
+      c.conectarBD();
+      c.desconectarBD();
         
     }
     

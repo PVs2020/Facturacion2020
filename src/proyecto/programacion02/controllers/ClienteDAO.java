@@ -3,6 +3,7 @@ package proyecto.programacion02.controllers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import proyecto.programacion02.models.Proveedor;
 
 /**
  *
