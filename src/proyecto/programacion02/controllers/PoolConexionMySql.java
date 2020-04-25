@@ -12,48 +12,35 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author reymo
+ * @author Reymond
  */
 public class PoolConexionMySql {
     
     MysqlDataSource ds_con;
     
-    public PoolConexionMySql(){
+    public PoolConexionMySql()  {
        
-        ds_con = new MysqlConnectionPoolDataSource();
-        ds_con.setServerName("localhost");
-        ds_con.setPort(3306);
-        ds_con.setDatabaseName("proyecto");
-        ds_con.setUser("root");
-        ds_con.setPassword("root");
-        
+            ds_con = new MysqlConnectionPoolDataSource();
+            ds_con.setServerName("localhost");
+            ds_con.setPort(3306);
+            ds_con.setDatabaseName("proyecto");
+            ds_con.setUser("root");
+            ds_con.setPassword("root"); 
     }
     
-    public Connection getConexion(){
-        try {
-            return ds_con.getConnection();
-        } catch (SQLException ex) {
-
-            JOptionPane.showMessageDialog(null, "Se perdio la conexion con el servidor :(",
-                    "Conexion al servidor", JOptionPane.ERROR_MESSAGE);
-            System.err.println(ex.getMessage());
-        }
-        return null;
-    }
-            
+       
      PoolConexionMySql(int servidor) {
         try {
             ds_con = new MysqlConnectionPoolDataSource();
             switch (servidor) {
                case 1:
-                    //ds_con.setServerName("201.203.230.249");
-                    //Solo Invenio
-                    ds_con.setServerName("localhost");
-                    ds_con.setPort(3306);
-                    ds_con.setLoginTimeout(5);
-                    ds_con.setDatabaseName("proyecto");
-                    ds_con.setUser("root");
-                    ds_con.setPassword("root");
+                   
+                   ds_con.setServerName("localhost");
+                   ds_con.setPort(3306);
+                   ds_con.setLoginTimeout(5);
+                   ds_con.setDatabaseName("proyecto");
+                   ds_con.setUser("root");
+                   ds_con.setPassword("root");
                     
                     break;
                 case 2:
@@ -68,5 +55,19 @@ public class PoolConexionMySql {
             Logger.getLogger(PoolConexionMySql.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
+     
+     
+     public Connection getConexion(){
+        try {
+            return ds_con.getConnection();
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Se perdio la conexion con el servidor :(",
+                    "Conexion al servidor", JOptionPane.ERROR_MESSAGE);
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+         
     
 }

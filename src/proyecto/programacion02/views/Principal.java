@@ -32,8 +32,10 @@ public class Principal extends javax.swing.JFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         btnCliente = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         btnProveedores = new javax.swing.JButton();
+        btnCategorias = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         desk = new javax.swing.JDesktopPane();
         jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -51,13 +53,12 @@ public class Principal extends javax.swing.JFrame {
         btnCliente.setFocusable(false);
         btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnCliente);
-
-        jButton3.setText("jButton3");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
 
         btnProveedores.setText("Proveedores");
         btnProveedores.setFocusable(false);
@@ -69,6 +70,24 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(btnProveedores);
+
+        btnCategorias.setText("Categorias");
+        btnCategorias.setFocusable(false);
+        btnCategorias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCategorias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btnCategorias);
+
+        jButton1.setText("Productos");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton1);
+
+        jButton2.setText("Facturaciòn");
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton2);
 
         javax.swing.GroupLayout deskLayout = new javax.swing.GroupLayout(desk);
         desk.setLayout(deskLayout);
@@ -141,6 +160,11 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+        frmCliente cliente = new frmCliente();
+        ValidarJInternalFrame(cliente);
+    }//GEN-LAST:event_btnClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,10 +202,12 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Inicio;
+    private javax.swing.JButton btnCategorias;
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnProveedores;
     private javax.swing.JDesktopPane desk;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

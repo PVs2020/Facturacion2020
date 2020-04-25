@@ -40,7 +40,7 @@ public class Conexion {
             System.out.print("Conexion obtenida\t");
             return true;
         } else {
-           //conexion = poolConexion.getConexion();
+           
             return false;
         }
     }

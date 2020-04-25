@@ -16,11 +16,11 @@ public class ProyectoFinalProgramacion02 {
     public static void main(String[] args) {
         Principal.theme();
         
-        Login logo = new Login();
-        logo.setVisible(true);
+//        Login logo = new Login();
+//        logo.setVisible(true);
         
-        //Principal prin = new Principal();
-       // prin.setVisible(true);
+        Principal prin = new Principal();
+        prin.setVisible(true);
         
     }
     
