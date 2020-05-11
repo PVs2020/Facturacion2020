@@ -65,7 +65,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="desk" min="-2" max="-2" attributes="0"/>
-                  <Component id="jToolBar1" min="-2" pref="535" max="-2" attributes="0"/>
+                  <Component id="jToolBar1" min="-2" pref="592" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -80,7 +80,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jToolBar1" min="-2" pref="53" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="desk" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -97,14 +97,6 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Usuarios"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="btnCliente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cliente"/>
@@ -150,6 +142,14 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSalir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Salir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

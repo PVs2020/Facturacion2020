@@ -16,13 +16,14 @@ import proyecto.programacion02.models.Proveedor;
 public class ProveedorDAO extends Conexion {
     public ResultSet cargarProveedor() {
         try {
-            obj_Procedimiento = getConexion().prepareCall("{CALL proveedorBuscarTodos}");
+            obj_Procedimiento = getConexion().prepareCall("{CALL proveedoreBuscarTodos}");
             rs = obj_Procedimiento.executeQuery();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
         return rs;
     }
+    
     public Proveedor buscarProveedor(String id) {
         Proveedor proveedor = null;
         try {
@@ -43,6 +44,7 @@ public class ProveedorDAO extends Conexion {
         }
         return proveedor;
     }
+    
     public boolean guardarProveedor(Proveedor proveedor) {
         boolean rpt = false;
         try {
@@ -59,6 +61,7 @@ public class ProveedorDAO extends Conexion {
         }
         return rpt;
     }
+    
     public boolean eliminarProveedor(String id){
     boolean rtp = false;
     try{ 
@@ -72,6 +75,7 @@ public class ProveedorDAO extends Conexion {
         }
     return rtp;
 }
+    
     public boolean editarProveedor(Proveedor proveedor) {
         boolean rpt = false;
         try {

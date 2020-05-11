@@ -210,6 +210,7 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setBounds(200, 400, 160, 40);
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUsuario.setText("Admin");
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -233,7 +234,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(350, 10, 61, 25);
+        jButton1.setBounds(350, 10, 56, 32);
 
         btnCrearCliente.setBackground(new java.awt.Color(0, 0, 0));
         btnCrearCliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -244,7 +245,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCrearCliente);
-        btnCrearCliente.setBounds(10, 10, 150, 25);
+        btnCrearCliente.setBounds(10, 10, 150, 32);
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ggg.png"))); // NOI18N
         getContentPane().add(jLabelFondo);
@@ -273,8 +274,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearClienteActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+       if(txtUsuario.getText().equals("Admin")){
         Principal prin = new Principal();
         prin.setVisible(true);
+       }else{
+           InicioVendedor ven = new InicioVendedor();
+           ven.setVisible(true);
+       }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
