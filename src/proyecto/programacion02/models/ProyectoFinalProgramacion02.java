@@ -2,7 +2,7 @@
 package proyecto.programacion02.models;
 
 import proyecto.programacion02.controllers.Conexion;
-import proyecto.programacion02.views.InicioVendedor;
+
 import proyecto.programacion02.views.Login;
 import proyecto.programacion02.views.Principal;
 

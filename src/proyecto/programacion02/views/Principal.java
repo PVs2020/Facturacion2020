@@ -3,13 +3,14 @@ package proyecto.programacion02.views;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import proyecto.programacion02.models.Usuario;
 
 /**
  *
  * @author reymo
  */
 public class Principal extends javax.swing.JFrame {
-
+Usuario usuario;
     /**
      * Creates new form Principal
      */
@@ -18,6 +19,22 @@ public class Principal extends javax.swing.JFrame {
         this.setTitle("Faturacion MAX");
         this.setExtendedState(MAXIMIZED_BOTH);
         
+        
+    }
+    Principal(Usuario usuario) {
+        initComponents();
+        this.setTitle("Faturacion MAX");
+        this.setExtendedState(MAXIMIZED_BOTH);
+        //setLocationRelativeTo(null);
+        this.usuario= usuario;
+        if(usuario.getTipo().equals("Administrador")){
+        this.setTitle("Faturacion MAX(Administrador)");
+        jMenu3.setVisible(false);
+        
+        }else {
+        this.setTitle("Faturacion MAX(vendedor)");
+        btnUsuario.setVisible(false);
+        } 
         
     }
 
@@ -31,12 +48,13 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
-        jButton3 = new javax.swing.JButton();
+        btnUsuario = new javax.swing.JButton();
         btnCliente = new javax.swing.JButton();
         btnProveedores = new javax.swing.JButton();
         btnCategorias = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         desk = new javax.swing.JDesktopPane();
         jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -50,13 +68,13 @@ public class Principal extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        jButton3.setText("Usuarios");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnUsuario.setText("Usuarios");
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnUsuarioActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton3);
+        jToolBar1.add(btnUsuario);
 
         btnCliente.setText("Cliente");
         btnCliente.setFocusable(false);
@@ -97,6 +115,17 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton2);
+
+        btnSalir.setText("Salir");
+        btnSalir.setFocusable(false);
+        btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnSalir);
 
         javax.swing.GroupLayout deskLayout = new javax.swing.GroupLayout(desk);
         desk.setLayout(deskLayout);
@@ -174,10 +203,15 @@ public class Principal extends javax.swing.JFrame {
         ValidarJInternalFrame(cliente);
     }//GEN-LAST:event_btnClienteActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
         frmUsuario usuario = new frmUsuario();
         ValidarJInternalFrame(usuario);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,10 +253,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnCategorias;
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnProveedores;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnUsuario;
     private javax.swing.JDesktopPane desk;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

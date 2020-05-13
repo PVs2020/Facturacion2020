@@ -6,6 +6,8 @@
 package proyecto.programacion02.views;
 
 import javax.swing.JOptionPane;
+import proyecto.programacion02.controllers.UsuarioDAO;
+import proyecto.programacion02.models.Usuario;
 
 /**
  *
@@ -51,11 +53,10 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtContraseña = new javax.swing.JPasswordField();
         txtUsuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnCrearCliente = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
         winCrearCuenta.setUndecorated(true);
@@ -200,17 +201,16 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(70, 410, 111, 22);
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        txtContraseña.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                txtContraseñaActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(200, 400, 160, 40);
+        getContentPane().add(txtContraseña);
+        txtContraseña.setBounds(200, 400, 160, 40);
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtUsuario.setText("Admin");
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -234,29 +234,18 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(350, 10, 56, 32);
-
-        btnCrearCliente.setBackground(new java.awt.Color(0, 0, 0));
-        btnCrearCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnCrearCliente.setText("Crear una Cuenta");
-        btnCrearCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearClienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCrearCliente);
-        btnCrearCliente.setBounds(10, 10, 150, 32);
+        jButton1.setBounds(350, 10, 53, 23);
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ggg.png"))); // NOI18N
         getContentPane().add(jLabelFondo);
-        jLabelFondo.setBounds(0, 0, 430, 560);
+        jLabelFondo.setBounds(0, 40, 430, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
@@ -266,21 +255,35 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteActionPerformed
-        winCrearCuenta.setSize(882, 407);
-        winCrearCuenta.setTitle("Crear Cuenta");
-        winCrearCuenta.setVisible(true);
-        winCrearCuenta.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnCrearClienteActionPerformed
-
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-       if(txtUsuario.getText().equals("Admin")){
-        Principal prin = new Principal();
-        prin.setVisible(true);
-       }else{
-           InicioVendedor ven = new InicioVendedor();
-           ven.setVisible(true);
-       }
+      UsuarioDAO usuarioDao = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+
+        String pass = new String(txtContraseña.getPassword());
+
+        if (!txtUsuario.getText().equals("") && !pass.equals("")) {
+
+            String nuevoPass = new String(pass);
+
+            usuario.setUsuario(txtUsuario.getText());
+            usuario.setContraseña(nuevoPass);
+
+            if (usuarioDao.Login(usuario)) {
+                if (usuarioDao.estadoLogin(usuario)) {
+                    if (usuario.getEstado().equals("Activo")) {
+                        Principal prin = new Principal(usuario);
+                        prin.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Usuario esta Inactivo");
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");
+                limpiar();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar sus datos");
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
@@ -305,22 +308,10 @@ public class Login extends javax.swing.JFrame {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
 
-        String pass = new String (txtPass.getPassword());
-        String passConf = new String (txtPassConfirm.getPassword());
-
-        if(passConf.equals(pass)){
-
-            JOptionPane.showMessageDialog(null, "Contraseña Correcta");
-
-        }else {
-
-            JOptionPane.showMessageDialog(null, "contraseña incorrecta");
-
-        }
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        winCrearCuenta.dispose();
+        
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
@@ -366,7 +357,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnCrearCliente;
     private javax.swing.JButton btnOk;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
@@ -381,9 +371,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFondo;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField txtApellido1;
     private javax.swing.JTextField txtApellido2;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPass;
@@ -391,4 +381,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     private javax.swing.JDialog winCrearCuenta;
     // End of variables declaration//GEN-END:variables
-}
+
+private void limpiar() {
+        txtUsuario.setText("");
+        txtContraseña.setText("");}}

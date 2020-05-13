@@ -30,6 +30,7 @@ public class UsuarioDAO extends Conexion {
             obj_Procedimiento.setString(1, usuario.getUsuario());
             obj_Procedimiento.setString(2, usuario.getContraseña());
             obj_Procedimiento.setString(3, usuario.getEstado());
+            rpt = obj_Procedimiento.executeUpdate() == 1;
             desconectarBD();
 
         } catch (SQLException ex) {
@@ -52,7 +53,7 @@ public class UsuarioDAO extends Conexion {
                 usua.setUsuario(rs.getString(1));
                 usua.setContraseña(rs.getString(2));
                 usua.setEstado(rs.getString(3));
-                
+                usua.setTipo(rs.getString(4));
             }
             desconectarBD();
         } catch (SQLException e) {
@@ -91,5 +92,59 @@ public class UsuarioDAO extends Conexion {
         }
         return rpt;
     }
-    
+    public boolean Login(Usuario usua) {
+
+        //Usuario usua = null;
+        try {
+            conectarBD();
+            obj_Procedimiento = getConexion().prepareCall("{CALL usuarioBuscarId(?)}");
+            obj_Procedimiento.setString(1, usua.getUsuario());
+            rs = obj_Procedimiento.executeQuery();
+            if (rs.next()) {
+                if (usua.getContraseña().equals(rs.getString(2))) {
+                    usua.setUsuario(rs.getString(1));
+                    //  usua.setContraseña(rs.getString(2));
+                    usua.setEstado(rs.getString(3));
+                    usua.setTipo(rs.getString(4));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            desconectarBD();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+
+    }
+
+    public boolean estadoLogin(Usuario usua) {
+
+        //Usuario usua = null;
+        try {
+            conectarBD();
+            obj_Procedimiento = getConexion().prepareCall("{CALL usuarioBuscarId(?)}");
+            obj_Procedimiento.setString(1, usua.getUsuario());
+            rs = obj_Procedimiento.executeQuery();
+            if (rs.next()) {
+                if (usua.getEstado().equals(rs.getString(3))) {
+                    usua.setUsuario(rs.getString(1));
+                    usua.setContraseña(rs.getString(2));
+                    // usua.setEstado(rs.getString(3));
+                    usua.setTipo(rs.getString(4));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            desconectarBD();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+
+    }
 }
