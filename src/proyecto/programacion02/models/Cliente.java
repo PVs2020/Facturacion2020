@@ -13,7 +13,7 @@ public class Cliente extends Persona {
     public Cliente() {
     }
 
-    public Cliente(String direccion, String fax, String id, String nombre, String telefono) {
+    public Cliente( String id, String nombre, String telefono,String direccion, String fax) {
         super(id, nombre, telefono);
         this.direccion = direccion;
         this.fax = fax;
