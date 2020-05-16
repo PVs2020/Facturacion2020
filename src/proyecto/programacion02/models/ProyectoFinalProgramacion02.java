@@ -21,11 +21,11 @@ public class ProyectoFinalProgramacion02 {
 //        Login logo = new Login();
 //        logo.setVisible(true);
         
-//        Principal prin = new Principal();
-//        prin.setVisible(true);
+        Principal prin = new Principal();
+        prin.setVisible(true);
 
-          Login logo =  new Login();
-          logo.setVisible(true);
+//          Login logo =  new Login();
+//          logo.setVisible(true);
         Conexion.setServidor(1);
 
         

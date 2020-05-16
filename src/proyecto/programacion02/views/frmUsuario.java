@@ -8,6 +8,7 @@ package proyecto.programacion02.views;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import proyecto.programacion02.controllers.UsuarioDAO;
+import proyecto.programacion02.models.Proveedor;
 import proyecto.programacion02.models.Usuario;
 /**
  *
@@ -47,8 +48,10 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        cmbEstado = new javax.swing.JComboBox<>();
+        cmbTipo = new javax.swing.JComboBox<>();
         txtContraseña = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        cmbEstado = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -97,6 +100,15 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Estado");
 
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Vendedor" }));
+        cmbTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Tipo");
+
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
 
         javax.swing.GroupLayout winUsuarioLayout = new javax.swing.GroupLayout(winUsuario.getContentPane());
@@ -104,25 +116,24 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         winUsuarioLayout.setHorizontalGroup(
             winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(winUsuarioLayout.createSequentialGroup()
-                .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(winUsuarioLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(winUsuarioLayout.createSequentialGroup()
-                                .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGap(28, 28, 28)
-                                .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtUsuario)
-                                    .addComponent(cmbEstado, 0, 137, Short.MAX_VALUE)
-                                    .addComponent(txtContraseña)))))
-                    .addGroup(winUsuarioLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(winUsuarioLayout.createSequentialGroup()
+                            .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5))
+                            .addGap(28, 28, 28)
+                            .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtUsuario)
+                                .addComponent(cmbTipo, 0, 137, Short.MAX_VALUE)
+                                .addComponent(txtContraseña)
+                                .addComponent(cmbEstado, 0, 137, Short.MAX_VALUE)))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         winUsuarioLayout.setVerticalGroup(
             winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,13 +148,21 @@ public class frmUsuario extends javax.swing.JInternalFrame {
                 .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
                 .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(winUsuarioLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, winUsuarioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(winUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
 
         setClosable(true);
@@ -233,7 +252,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -265,11 +284,21 @@ public class frmUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-      //        int fila = tblUsuario.getSelectedRow();
-//        if(fila != -1){
-//            String usuario = tblUsuario.getValueAt(fila,0).toString();
-//            
-//        }
+      int fila = tblUsuario.getSelectedRow();
+        if (fila != -1){
+            winUsuario.setSize(605, 397);
+            winUsuario.setTitle("Editar");
+            winUsuario.setLocationRelativeTo(tblUsuario);
+            winUsuario.setVisible(true);
+            String usua = tblUsuario.getValueAt(fila, 0).toString();
+            Usuario usuario = usuarioDao.buscarUsuario(usua);
+            txtUsuario.setText(usuario.getUsuario());
+            txtContraseña.setText(usuario.getContraseña());
+            cmbEstado.setSelectedItem(usuario.getEstado());
+            cmbTipo.setSelectedItem(usuario.getTipo());
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Elija primero el proveedor a Editar", "Editar", JOptionPane.ERROR_MESSAGE);
+        }                                  
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
@@ -280,6 +309,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
             usuario.setUsuario(txtUsuario.getText());
             usuario.setContraseña(txtContraseña.getText());
             usuario.setEstado(cmbEstado.getSelectedItem().toString());
+            usuario.setTipo(cmbTipo.getSelectedItem().toString());
             if (winUsuario.getTitle().equals("Guardar")) {
                 if (usuarioDao.buscarUsuario(usuario.getUsuario()) == null) {
                     if(usuarioDao.guardarUsuario(usuario)){
@@ -302,6 +332,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
                        JOptionPane.showMessageDialog(winUsuario,
                             "Cliente editado exitosamente", "Editar",
                             JOptionPane.INFORMATION_MESSAGE);
+                       cargarUsuario();
                     winUsuario.dispose(); 
                 }else{
                     JOptionPane.showMessageDialog(winUsuario,
@@ -317,6 +348,10 @@ public class frmUsuario extends javax.swing.JInternalFrame {
     }
             
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTipoActionPerformed
     public String validarDatos(){
         if(txtUsuario.getText().trim().equals("")){
             txtUsuario.requestFocus();
@@ -334,11 +369,13 @@ public class frmUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cmbEstado;
+    private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

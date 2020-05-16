@@ -256,18 +256,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-      UsuarioDAO usuarioDao = new UsuarioDAO();
+        UsuarioDAO usuarioDao = new UsuarioDAO();
         Usuario usuario = new Usuario();
-
         String pass = new String(txtContraseña.getPassword());
-
-        if (!txtUsuario.getText().equals("") && !pass.equals("")) {
-
-            String nuevoPass = new String(pass);
-
+        if (!txtUsuario.getText().trim().equals("") && !pass.trim().equals("")) {
             usuario.setUsuario(txtUsuario.getText());
-            usuario.setContraseña(nuevoPass);
-
+            usuario.setContraseña(pass);
             if (usuarioDao.Login(usuario)) {
                 if (usuarioDao.estadoLogin(usuario)) {
                     if (usuario.getEstado().equals("Activo")) {
@@ -278,8 +272,10 @@ public class Login extends javax.swing.JFrame {
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Datos incorrectos");
-                limpiar();
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña no resgistrado");
+                txtContraseña.requestFocus();
+                //limpiar();
+
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe ingresar sus datos");
@@ -311,7 +307,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        
+
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
@@ -382,6 +378,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JDialog winCrearCuenta;
     // End of variables declaration//GEN-END:variables
 
-private void limpiar() {
+    private void limpiar() {
         txtUsuario.setText("");
-        txtContraseña.setText("");}}
+        txtContraseña.setText("");
+    }
+}

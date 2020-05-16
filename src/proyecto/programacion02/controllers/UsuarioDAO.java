@@ -26,10 +26,11 @@ public class UsuarioDAO extends Conexion {
         boolean rpt = false;
         try {
             conectarBD();
-            obj_Procedimiento = getConexion().prepareCall("{CALL usuarioAgregar(?,?,?)}");
+            obj_Procedimiento = getConexion().prepareCall("{CALL usuarioAgregar(?,?,?,?)}");
             obj_Procedimiento.setString(1, usuario.getUsuario());
             obj_Procedimiento.setString(2, usuario.getContraseña());
             obj_Procedimiento.setString(3, usuario.getEstado());
+            obj_Procedimiento.setString(4, usuario.getTipo());
             rpt = obj_Procedimiento.executeUpdate() == 1;
             desconectarBD();
 
@@ -81,10 +82,11 @@ public class UsuarioDAO extends Conexion {
         boolean rpt = false;
         try {
             conectarBD();
-            obj_Procedimiento = getConexion().prepareCall("{CALL usuarioActualizar(?,?,?)}");
+            obj_Procedimiento = getConexion().prepareCall("{CALL usuarioEditar(?,?,?,?)}");
             obj_Procedimiento.setString(1, usuario.getUsuario());
             obj_Procedimiento.setString(2, usuario.getContraseña());
             obj_Procedimiento.setString(3, usuario.getEstado());
+            obj_Procedimiento.setString(4, usuario.getTipo());
             rpt = obj_Procedimiento.executeUpdate() == 1;
             desconectarBD();
         } catch (SQLException e) {
@@ -92,6 +94,9 @@ public class UsuarioDAO extends Conexion {
         }
         return rpt;
     }
+    
+    
+    
     public boolean Login(Usuario usua) {
 
         //Usuario usua = null;
