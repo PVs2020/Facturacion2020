@@ -52,7 +52,7 @@ Usuario usuario;
         btnCliente = new javax.swing.JButton();
         btnProveedores = new javax.swing.JButton();
         btnCategorias = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnProducto = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         desk = new javax.swing.JDesktopPane();
@@ -104,11 +104,16 @@ Usuario usuario;
         btnCategorias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(btnCategorias);
 
-        jButton1.setText("Productos");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
+        btnProducto.setText("Productos");
+        btnProducto.setFocusable(false);
+        btnProducto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnProducto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductoActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnProducto);
 
         jButton2.setText("Facturaciòn");
         jButton2.setFocusable(false);
@@ -204,14 +209,19 @@ Usuario usuario;
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        frmUsuario usuario = new frmUsuario();
-        ValidarJInternalFrame(usuario);
+        frmUsuario usua = new frmUsuario();
+        ValidarJInternalFrame(usua);
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed
+      frmProducto pro =  new frmProducto();
+        ValidarJInternalFrame(pro);
+    }//GEN-LAST:event_btnProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,11 +262,11 @@ Usuario usuario;
     private javax.swing.JMenu Inicio;
     private javax.swing.JButton btnCategorias;
     private javax.swing.JButton btnCliente;
+    private javax.swing.JButton btnProducto;
     private javax.swing.JButton btnProveedores;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JDesktopPane desk;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
