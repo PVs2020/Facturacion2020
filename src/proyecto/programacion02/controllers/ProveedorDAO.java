@@ -14,6 +14,7 @@ import proyecto.programacion02.models.Proveedor;
  * @author Daniel Jesús
  */
 public class ProveedorDAO extends Conexion {
+    
     public ResultSet cargarProveedor() {
         try {
             obj_Procedimiento = getConexion().prepareCall("{CALL proveedoreBuscarTodos}");
