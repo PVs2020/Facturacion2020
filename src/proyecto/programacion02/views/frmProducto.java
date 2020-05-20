@@ -9,20 +9,24 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import proyecto.programacion02.controllers.ProductoDAO;
+import proyecto.programacion02.controllers.ProductosDAO;
 
 /**
  *
  * @author reymo
  */
-public class frmProducto extends javax.swing.JFrame {
-
+public class frmProducto extends javax.swing.JInternalFrame {
+     ProductosDAO productosDao = new ProductosDAO();
     /**
-     * Creates new form frmProducto
+     * Creates new form frmProducto1
      */
-    ProductoDAO productosDao = new ProductoDAO();
+    
     
     public frmProducto() {
         initComponents();
+        //Esto carga la informacion en los combobox 
+        this.cmbProveedor.setModel(productosDao.Obt_Proveedor());
+        this.cmbCategoria.setModel(productosDao.Obt_Categoria());
     }
 
     /**
@@ -75,8 +79,6 @@ public class frmProducto extends javax.swing.JFrame {
         jLabel6.setText("Codigo Proveedor");
 
         jLabel7.setText("Codigo Categoria");
-
-        cmbProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -175,8 +177,6 @@ public class frmProducto extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,72 +260,72 @@ public class frmProducto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
+                        .addGap(63, 63, 63)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGap(0, 49, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-      
+        winProducto.setTitle("Proveedor");
+        winProducto.setSize(452, 539);
+        winProducto.setVisible(true);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-//        int fila = tblCliente.getSelectedRow();
-//        if(fila != -1){
-//            String id = tblCliente.getValueAt(fila, 0).toString();
-//            int resp = JOptionPane.showConfirmDialog(rootPane, "esta seguro eliminar a "+ id, "Eliminar", JOptionPane.YES_OPTION);
-//            if (resp == JOptionPane.YES_OPTION){
-//                if (clienteDao.eliminarCliente(id)){
-//                    JOptionPane.showMessageDialog(rootPane, "eliminado");
-//                    cargarDatosCliente();
-//                }else {
-//                    JOptionPane.showMessageDialog(rootPane, "problemas...");
-//                }
-//            }
-//        }else{
-//            JOptionPane.showMessageDialog(rootPane, "Seleccione el registro a eliminar",
-//                "Eliminar",
-//                JOptionPane.ERROR_MESSAGE);
-//        }
+        //        int fila = tblCliente.getSelectedRow();
+        //        if(fila != -1){
+            //            String id = tblCliente.getValueAt(fila, 0).toString();
+            //            int resp = JOptionPane.showConfirmDialog(rootPane, "esta seguro eliminar a "+ id, "Eliminar", JOptionPane.YES_OPTION);
+            //            if (resp == JOptionPane.YES_OPTION){
+                //                if (clienteDao.eliminarCliente(id)){
+                    //                    JOptionPane.showMessageDialog(rootPane, "eliminado");
+                    //                    cargarDatosCliente();
+                    //                }else {
+                    //                    JOptionPane.showMessageDialog(rootPane, "problemas...");
+                    //                }
+                //            }
+            //        }else{
+            //            JOptionPane.showMessageDialog(rootPane, "Seleccione el registro a eliminar",
+                //                "Eliminar",
+                //                JOptionPane.ERROR_MESSAGE);
+            //        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-//        int fila = tblCliente.getSelectedRow();
-//        if (fila != -1) {
-//            winCliente.setSize(468, 467);
-//            winCliente.setTitle("Editar");
-//            txtId.setEditable(false);
-//            winCliente.setVisible(true);
-//            String id = tblCliente.getValueAt(fila, 0).toString();
-//            Cliente cliente = clienteDao.buscarCliente(id);
-//            txtId.setText(cliente.getId());
-//            txtNombre.setText(cliente.getNombre());
-//            txtDireccion.setText(cliente.getDireccion());
-//            txtTelefono.setText(cliente.getTelefono());
-//            txtFax.setText(cliente.getFax());
-//
-//        } else {
-//            JOptionPane.showMessageDialog(rootPane, "Elija el Cliente a Editar", "Editar", JOptionPane.ERROR_MESSAGE);
-//        }
+        //        int fila = tblCliente.getSelectedRow();
+        //        if (fila != -1) {
+            //            winCliente.setSize(468, 467);
+            //            winCliente.setTitle("Editar");
+            //            txtId.setEditable(false);
+            //            winCliente.setVisible(true);
+            //            String id = tblCliente.getValueAt(fila, 0).toString();
+            //            Cliente cliente = clienteDao.buscarCliente(id);
+            //            txtId.setText(cliente.getId());
+            //            txtNombre.setText(cliente.getNombre());
+            //            txtDireccion.setText(cliente.getDireccion());
+            //            txtTelefono.setText(cliente.getTelefono());
+            //            txtFax.setText(cliente.getFax());
+            //
+            //        } else {
+            //            JOptionPane.showMessageDialog(rootPane, "Elija el Cliente a Editar", "Editar", JOptionPane.ERROR_MESSAGE);
+            //        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -334,43 +334,9 @@ public class frmProducto extends javax.swing.JFrame {
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmProducto().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
@@ -400,6 +366,7 @@ public class frmProducto extends javax.swing.JFrame {
     private javax.swing.JTextField txtUnidades;
     private javax.swing.JDialog winProducto;
     // End of variables declaration//GEN-END:variables
+
    public void consultarProveedor(JComboBox cmbProveedor){
        java.sql.Connection conectar =  null; 
        
@@ -435,6 +402,7 @@ public class frmProducto extends javax.swing.JFrame {
        }
    }
  
+
 
 
 }

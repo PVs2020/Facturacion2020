@@ -52,11 +52,10 @@ Usuario usuario;
         btnCliente = new javax.swing.JButton();
         btnProveedores = new javax.swing.JButton();
         btnCategorias = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnProducto = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         desk = new javax.swing.JDesktopPane();
-        jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -102,13 +101,23 @@ Usuario usuario;
         btnCategorias.setFocusable(false);
         btnCategorias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCategorias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCategoriasActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnCategorias);
 
-        jButton1.setText("Productos");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
+        btnProducto.setText("Productos");
+        btnProducto.setFocusable(false);
+        btnProducto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnProducto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductoActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnProducto);
 
         jButton2.setText("Facturaciòn");
         jButton2.setFocusable(false);
@@ -131,11 +140,11 @@ Usuario usuario;
         desk.setLayout(deskLayout);
         deskLayout.setHorizontalGroup(
             deskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1349, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         deskLayout.setVerticalGroup(
             deskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 586, Short.MAX_VALUE)
+            .addGap(0, 615, Short.MAX_VALUE)
         );
 
         Inicio.setText("Inicio");
@@ -165,25 +174,15 @@ Usuario usuario;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(desk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(desk)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(desk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(desk))
         );
 
         pack();
@@ -204,14 +203,24 @@ Usuario usuario;
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        frmUsuario usuario = new frmUsuario();
-        ValidarJInternalFrame(usuario);
+        frmUsuario usua = new frmUsuario();
+        ValidarJInternalFrame(usua);
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed
+      frmProducto pro =  new frmProducto();
+        ValidarJInternalFrame(pro);
+    }//GEN-LAST:event_btnProductoActionPerformed
+
+    private void btnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriasActionPerformed
+        frmCategoria cat = new frmCategoria();
+        ValidarJInternalFrame(cat);
+    }//GEN-LAST:event_btnCategoriasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,18 +261,17 @@ Usuario usuario;
     private javax.swing.JMenu Inicio;
     private javax.swing.JButton btnCategorias;
     private javax.swing.JButton btnCliente;
+    private javax.swing.JButton btnProducto;
     private javax.swing.JButton btnProveedores;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JDesktopPane desk;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
       
