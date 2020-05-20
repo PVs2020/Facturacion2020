@@ -35,9 +35,9 @@ public class ProveedorDAO extends Conexion {
             if (rs.next()) {
                 proveedor = new Proveedor();
                 proveedor.setId(rs.getString(1));
-                proveedor.setNombre(rs.getString(2));
-                proveedor.setTelefono(rs.getString(3));
-                proveedor.setCompania(rs.getString(4));
+                proveedor.setCompania(rs.getString(2));
+                proveedor.setNombre(rs.getString(3));
+                proveedor.setTelefono(rs.getString(4));
             }
             desconectarBD();
         } catch (SQLException e) {
@@ -51,10 +51,10 @@ public class ProveedorDAO extends Conexion {
         try {
             conectarBD();
             obj_Procedimiento = getConexion().prepareCall("{CALL proveedorGuardar(?,?,?,?)}");
-            obj_Procedimiento.setString(1, proveedor.getId());
-            obj_Procedimiento.setString(2, proveedor.getNombre());
-            obj_Procedimiento.setString(3, proveedor.getTelefono());
-            obj_Procedimiento.setString(4, proveedor.getCompania());
+             obj_Procedimiento.setString(1, proveedor.getId());
+            obj_Procedimiento.setString(2, proveedor.getCompania());
+            obj_Procedimiento.setString(3, proveedor.getNombre());
+            obj_Procedimiento.setString(4, proveedor.getTelefono());
             rpt = obj_Procedimiento.executeUpdate() == 1;
             desconectarBD();
         } catch (SQLException e) {
@@ -83,9 +83,9 @@ public class ProveedorDAO extends Conexion {
             conectarBD();
             obj_Procedimiento = getConexion().prepareCall("{CALL proveedorActualizar(?,?,?,?)}");
             obj_Procedimiento.setString(1, proveedor.getId());
-            obj_Procedimiento.setString(2, proveedor.getNombre());
-            obj_Procedimiento.setString(3, proveedor.getTelefono());
-            obj_Procedimiento.setString(4, proveedor.getCompania());
+            obj_Procedimiento.setString(2, proveedor.getCompania());
+            obj_Procedimiento.setString(3, proveedor.getNombre());
+            obj_Procedimiento.setString(4, proveedor.getTelefono());
             rpt = obj_Procedimiento.executeUpdate() == 1;
             desconectarBD();
         } catch (SQLException e) {

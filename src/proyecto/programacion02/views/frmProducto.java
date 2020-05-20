@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import proyecto.programacion02.controllers.ProductosDAO;
+import proyecto.programacion02.controllers.ProductoDAO;
 
 /**
  *
@@ -19,7 +19,7 @@ public class frmProducto extends javax.swing.JFrame {
     /**
      * Creates new form frmProducto
      */
-    ProductosDAO productosDao = new ProductosDAO();
+    ProductoDAO productosDao = new ProductoDAO();
     
     public frmProducto() {
         initComponents();
@@ -408,7 +408,7 @@ public class frmProducto extends javax.swing.JFrame {
        //
        try {
            //Establecemos conexion con la BD
-           conectar = productosDao.dataSource.getConnection();
+           //conectar = productosDao.dataSource.getConnection();
            PreparedStatement pst =  conectar.prepareStatement(SSQL);
            ResultSet result = pst.executeQuery();
            
