@@ -5,8 +5,15 @@
  */
 package proyecto.programacion02.controllers;
 
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import proyecto.programacion02.models.Categoria;
 
 
@@ -122,5 +129,20 @@ public class CategoriaDAO extends Conexion {
         return cat;
     } 
     
-    
+           public void cargarReporteCategoria() {
+
+        conectarBD();
+        JasperReport reportes;
+        JasperPrint reporte_view;
+        try {
+            URL in = this.getClass().getResource("/proyecto/programacion02/Reports/rptCategoria.jasper");
+            reportes = (JasperReport) JRLoader.loadObject(in);
+            reporte_view = JasperFillManager.fillReport(reportes, null, getConexion());
+            JasperViewer.viewReport(reporte_view, false); 
+        } catch (JRException ex) {
+            
+            System.err.println(ex.toString());
+        }
+
+    }
 }

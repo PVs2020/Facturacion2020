@@ -24,10 +24,10 @@ public class PoolConexionMySql {
             ds_con.setServerName("localhost");
             ds_con.setPort(3306);
             ds_con.setDatabaseName("proyecto");
-           // ds_con.setUser("root");
-            //ds_con.setPassword("root");
-            ds_con.setUser("daniel20");
-           ds_con.setPassword("mylmln9461");
+            ds_con.setUser("root");
+            ds_con.setPassword("root");
+            //ds_con.setUser("daniel20");
+          // ds_con.setPassword("mylmln9461");
             
     }
     
@@ -42,10 +42,10 @@ public class PoolConexionMySql {
                    ds_con.setPort(3306);
                    ds_con.setLoginTimeout(5);
                    ds_con.setDatabaseName("proyecto");
-                  // ds_con.setPassword("root");
-                  // ds_con.setUser("root");
-                   ds_con.setUser("daniel20");
-                  ds_con.setPassword("mylmln9461");
+                   ds_con.setPassword("root");
+                   ds_con.setUser("root");
+                   //ds_con.setUser("daniel20");
+                  //ds_con.setPassword("mylmln9461");
                     
                     break;
                 case 2:
