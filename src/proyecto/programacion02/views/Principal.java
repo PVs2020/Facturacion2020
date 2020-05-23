@@ -209,7 +209,11 @@ Usuario usuario;
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        int resp = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de salir? ", 
+                "Salir", JOptionPane.YES_NO_OPTION);
+        if (resp==JOptionPane.YES_OPTION){
+        System.exit(1);
+        }
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed

@@ -330,6 +330,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed

@@ -472,7 +472,7 @@ ProveedorDAO proveedoresDao;
             JOptionPane.showMessageDialog(rootPane, "Debe ingresar consulta",
                     "Consulta", JOptionPane.ERROR_MESSAGE);
         }else{
-        Buscar();
+        FiltrarDatos();
         }
         
         
@@ -492,7 +492,7 @@ ProveedorDAO proveedoresDao;
             }));
         cargarDatosProveedor();
     }//GEN-LAST:event_jButton1ActionPerformed
-   public void Buscar(){
+   public void FiltrarDatos(){
   Conexion conexion = new Conexion();
         String sql;
         ResultSet rs;
