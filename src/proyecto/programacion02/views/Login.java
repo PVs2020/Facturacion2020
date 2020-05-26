@@ -11,7 +11,7 @@ import proyecto.programacion02.models.Usuario;
 
 /**
  *
- * @author emque
+ * @author Daniel Jesús
  */
 public class Login extends javax.swing.JFrame {
 

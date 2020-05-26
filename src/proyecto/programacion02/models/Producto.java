@@ -9,32 +9,34 @@ package proyecto.programacion02.models;
  *
  * @author Daniel Jesús
  */
-public class Producto {
-    public String IdProducto;
+
+   public class Producto {
+    public String idProducto;
     public String nombreProducto;
-    public String precioUnidad;
-    public String unidadExistecia;
-    public String IdProveedor;
-    public String IdCategoria;
+    public double precioUnidad;
+    public int unidadExistecia;
+    public String idProveedor;
+    public String idCategoria;
 
     public Producto() {
     }
 
-    public Producto(String IdProducto, String nombreProducto, String precioUnidad, String unidadExistecia, String IdProveedor, String IdCategoria) {
-        this.IdProducto = IdProducto;
+    public Producto(String idProducto, String nombreProducto, double precioUnidad,
+            int unidadExistecia, String idProveedor, String idCategoria) {
+        this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.precioUnidad = precioUnidad;
         this.unidadExistecia = unidadExistecia;
-        this.IdProveedor = IdProveedor;
-        this.IdCategoria = IdCategoria;
+        this.idProveedor = idProveedor;
+        this.idCategoria = idCategoria;
     }
 
     public String getIdProducto() {
-        return IdProducto;
+        return idProducto;
     }
 
-    public void setIdProducto(String IdProducto) {
-        this.IdProducto = IdProducto;
+    public void setIdProducto(String idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombreProducto() {
@@ -45,42 +47,46 @@ public class Producto {
         this.nombreProducto = nombreProducto;
     }
 
-    public String getPrecioUnidad() {
+    public double getPrecioUnidad() {
         return precioUnidad;
     }
 
-    public void setPrecioUnidad(String precioUnidad) {
+    public void setPrecioUnidad(double precioUnidad) {
         this.precioUnidad = precioUnidad;
     }
 
-    public String getUnidadExistecia() {
+    public int getUnidadExistecia() {
         return unidadExistecia;
     }
 
-    public void setUnidadExistecia(String unidadExistecia) {
+    public void setUnidadExistecia(int unidadExistecia) {
         this.unidadExistecia = unidadExistecia;
     }
 
     public String getIdProveedor() {
-        return IdProveedor;
+        return idProveedor;
     }
 
-    public void setIdProveedor(String IdProveedor) {
-        this.IdProveedor = IdProveedor;
+    public void setIdProveedor(String idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
     public String getIdCategoria() {
-        return IdCategoria;
+        return idCategoria;
     }
 
-    public void setIdCategoria(String IdCategoria) {
-        this.IdCategoria = IdCategoria;
+    public void setIdCategoria(String idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     @Override
     public String toString() {
-        return "Producto{" + "IdProducto=" + IdProducto + ", nombreProducto=" + nombreProducto + ", precioUnidad=" + precioUnidad + ", unidadExistecia=" + unidadExistecia + ", IdProveedor=" + IdProveedor + ", IdCategoria=" + IdCategoria + '}';
+        return "Producto{" + "idProducto=" + idProducto + ", nombreProducto=" 
+                + nombreProducto + ", precioUnidad=" + precioUnidad + ", unidadExistecia=" 
+                + unidadExistecia + ", idProveedor=" 
+                + idProveedor + ", idCategoria=" + idCategoria + '}';
     }
+    
     
     
     
