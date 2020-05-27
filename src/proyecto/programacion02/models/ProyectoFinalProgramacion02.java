@@ -19,7 +19,7 @@ public class ProyectoFinalProgramacion02 {
         Principal.theme();
         
 //        Login logo = new Login();
-//        logo.setVisible(true);
+//       logo.setVisible(true);
         
         Principal prin = new Principal();
         prin.setVisible(true);

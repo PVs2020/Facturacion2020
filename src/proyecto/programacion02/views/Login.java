@@ -11,7 +11,7 @@ import proyecto.programacion02.models.Usuario;
 
 /**
  *
- * @author emque
+ * @author Daniel Jesús
  */
 public class Login extends javax.swing.JFrame {
 
@@ -33,23 +33,6 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        winCrearCuenta = new javax.swing.JDialog();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtApellido1 = new javax.swing.JTextField();
-        txtPassConfirm = new javax.swing.JPasswordField();
-        txtPass = new javax.swing.JPasswordField();
-        btnOk = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtApellido2 = new javax.swing.JTextField();
-        fondo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -59,133 +42,16 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
 
-        winCrearCuenta.setUndecorated(true);
-        winCrearCuenta.getContentPane().setLayout(null);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Registrese");
-        winCrearCuenta.getContentPane().add(jLabel5);
-        jLabel5.setBounds(320, 20, 210, 40);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText(" Nombre: ");
-        winCrearCuenta.getContentPane().add(jLabel6);
-        jLabel6.setBounds(80, 100, 90, 40);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Primer Apellido:");
-        winCrearCuenta.getContentPane().add(jLabel7);
-        jLabel7.setBounds(400, 120, 130, 20);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel3.setText("Segundo Apellido:");
-        winCrearCuenta.getContentPane().add(jLabel3);
-        jLabel3.setBounds(380, 180, 150, 30);
-
-        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreoActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(txtCorreo);
-        txtCorreo.setBounds(540, 250, 160, 30);
-
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(txtNombre);
-        txtNombre.setBounds(170, 110, 160, 30);
-
-        txtApellido1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido1ActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(txtApellido1);
-        txtApellido1.setBounds(540, 110, 160, 30);
-
-        txtPassConfirm.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtPassConfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassConfirmActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(txtPassConfirm);
-        txtPassConfirm.setBounds(170, 260, 160, 30);
-
-        txtPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(txtPass);
-        txtPass.setBounds(170, 180, 160, 30);
-
-        btnOk.setText("Aceptar");
-        btnOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOkActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(btnOk);
-        btnOk.setBounds(440, 330, 140, 40);
-
-        btnCerrar.setText("Cancelar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(btnCerrar);
-        btnCerrar.setBounds(640, 330, 140, 40);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel8.setText("<html>Confirmar Contraseña:<html>");
-        winCrearCuenta.getContentPane().add(jLabel8);
-        jLabel8.setBounds(50, 240, 100, 50);
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel10.setText("Correo: ");
-        winCrearCuenta.getContentPane().add(jLabel10);
-        jLabel10.setBounds(460, 250, 70, 30);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel9.setText("Contraseña:");
-        winCrearCuenta.getContentPane().add(jLabel9);
-        jLabel9.setBounds(50, 180, 100, 30);
-
-        txtApellido2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido2ActionPerformed(evt);
-            }
-        });
-        winCrearCuenta.getContentPane().add(txtApellido2);
-        txtApellido2.setBounds(540, 180, 160, 30);
-
-        fondo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/000000.jpg"))); // NOI18N
-        winCrearCuenta.getContentPane().add(fondo);
-        fondo.setBounds(0, -320, 1590, 730);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_Rounded-31_2024644.png"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(150, 80, 140, 150);
+        jLabel4.setBounds(150, 50, 140, 150);
 
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sign-in.png"))); // NOI18N
         btnAceptar.setText("Iniciar sesión");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,13 +59,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(199, 495, 170, 40);
+        btnAceptar.setBounds(180, 500, 190, 40);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/key.png"))); // NOI18N
         jLabel2.setText("Contraseña:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(70, 410, 111, 22);
+        jLabel2.setBounds(60, 390, 150, 22);
 
         txtContraseña.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtContraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +75,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtContraseña);
-        txtContraseña.setBounds(200, 400, 160, 40);
+        txtContraseña.setBounds(200, 380, 160, 40);
 
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -217,16 +84,17 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(200, 320, 160, 40);
+        txtUsuario.setBounds(200, 290, 160, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar.png"))); // NOI18N
         jLabel1.setText("Usuario: ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(100, 330, 81, 22);
+        jLabel1.setBounds(90, 290, 120, 40);
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,11 +102,11 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(350, 10, 53, 23);
+        jButton1.setBounds(330, 10, 90, 40);
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ggg.png"))); // NOI18N
         getContentPane().add(jLabelFondo);
-        jLabelFondo.setBounds(0, 40, 430, 520);
+        jLabelFondo.setBounds(0, 0, 430, 560);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,38 +150,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
-    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCorreoActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido1ActionPerformed
-
-    private void txtPassConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassConfirmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassConfirmActionPerformed
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
-
-    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-
-    }//GEN-LAST:event_btnOkActionPerformed
-
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-
-    }//GEN-LAST:event_btnCerrarActionPerformed
-
-    private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -352,30 +188,13 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnOk;
-    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelFondo;
-    private javax.swing.JTextField txtApellido1;
-    private javax.swing.JTextField txtApellido2;
     private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JPasswordField txtPass;
-    private javax.swing.JPasswordField txtPassConfirm;
     private javax.swing.JTextField txtUsuario;
-    private javax.swing.JDialog winCrearCuenta;
     // End of variables declaration//GEN-END:variables
 
     private void limpiar() {

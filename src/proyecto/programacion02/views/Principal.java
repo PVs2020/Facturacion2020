@@ -20,6 +20,7 @@ Usuario usuario;
         this.setExtendedState(MAXIMIZED_BOTH);
         
         
+        
     }
     Principal(Usuario usuario) {
         initComponents();
@@ -67,7 +68,9 @@ Usuario usuario;
 
         jToolBar1.setRollover(true);
 
+        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
         btnUsuario.setText("Usuarios");
+        btnUsuario.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
@@ -75,6 +78,7 @@ Usuario usuario;
         });
         jToolBar1.add(btnUsuario);
 
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/person.png"))); // NOI18N
         btnCliente.setText("Cliente");
         btnCliente.setFocusable(false);
         btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -86,6 +90,7 @@ Usuario usuario;
         });
         jToolBar1.add(btnCliente);
 
+        btnProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/provider.png"))); // NOI18N
         btnProveedores.setText("Proveedores");
         btnProveedores.setFocusable(false);
         btnProveedores.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -97,6 +102,7 @@ Usuario usuario;
         });
         jToolBar1.add(btnProveedores);
 
+        btnCategorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/categories.png"))); // NOI18N
         btnCategorias.setText("Categorias");
         btnCategorias.setFocusable(false);
         btnCategorias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -108,6 +114,7 @@ Usuario usuario;
         });
         jToolBar1.add(btnCategorias);
 
+        btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/products.png"))); // NOI18N
         btnProducto.setText("Productos");
         btnProducto.setFocusable(false);
         btnProducto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -119,12 +126,14 @@ Usuario usuario;
         });
         jToolBar1.add(btnProducto);
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/facturas.png"))); // NOI18N
         jButton2.setText("Facturaciòn");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton2);
 
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setFocusable(false);
         btnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -136,15 +145,18 @@ Usuario usuario;
         });
         jToolBar1.add(btnSalir);
 
+        desk.setBackground(new java.awt.Color(255, 255, 255));
+        desk.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout deskLayout = new javax.swing.GroupLayout(desk);
         desk.setLayout(deskLayout);
         deskLayout.setHorizontalGroup(
             deskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1039, Short.MAX_VALUE)
         );
         deskLayout.setVerticalGroup(
             deskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 615, Short.MAX_VALUE)
+            .addGap(0, 626, Short.MAX_VALUE)
         );
 
         Inicio.setText("Inicio");
@@ -174,14 +186,14 @@ Usuario usuario;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desk)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1364, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1039, Short.MAX_VALUE)
+            .addComponent(desk, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(desk))
         );
 
@@ -209,7 +221,11 @@ Usuario usuario;
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        int resp = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de salir? ", 
+                "Salir", JOptionPane.YES_NO_OPTION);
+        if (resp==JOptionPane.YES_OPTION){
+        System.exit(1);
+        }
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed
