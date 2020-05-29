@@ -163,7 +163,7 @@ ProveedorDAO proveedoresDao;
 
         jLabel1.setFont(new java.awt.Font("Imprint MT Shadow", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delivery-truck.png"))); // NOI18N
-        jLabel1.setText("Registro de Prooveedores");
+        jLabel1.setText("Registro de Proveedores");
 
         javax.swing.GroupLayout winProveedorLayout = new javax.swing.GroupLayout(winProveedor.getContentPane());
         winProveedor.getContentPane().setLayout(winProveedorLayout);

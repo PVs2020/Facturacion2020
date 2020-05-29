@@ -57,6 +57,7 @@ Usuario usuario;
         jButton2 = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         desk = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -148,15 +149,21 @@ Usuario usuario;
         desk.setBackground(new java.awt.Color(255, 255, 255));
         desk.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/welcome.jpg"))); // NOI18N
+
+        desk.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout deskLayout = new javax.swing.GroupLayout(desk);
         desk.setLayout(deskLayout);
         deskLayout.setHorizontalGroup(
             deskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1039, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         deskLayout.setVerticalGroup(
             deskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deskLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1062, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         Inicio.setText("Inicio");
@@ -186,8 +193,10 @@ Usuario usuario;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1039, Short.MAX_VALUE)
             .addComponent(desk, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,6 +292,7 @@ Usuario usuario;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JDesktopPane desk;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

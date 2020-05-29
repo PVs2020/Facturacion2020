@@ -36,11 +36,11 @@ public class ProductoDAO extends Conexion {
         DefaultComboBoxModel listaModeloProveedor = new DefaultComboBoxModel();
         listaModeloProveedor.addElement("Seleccione un proveedor");
         conectarBD();
-        ResultSet res = this.consulta("Select Compañia from proveedor ORDER BY Compañia ASC;");
+        ResultSet res = this.consulta("Select Compania from proveedor ORDER BY Compania ASC;");
 
         try {
             while (res.next()) {
-                listaModeloProveedor.addElement(res.getString("Compañia"));
+                listaModeloProveedor.addElement(res.getString("Compania"));
             }
             res.close();
         } catch (SQLException e) {

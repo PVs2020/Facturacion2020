@@ -9,16 +9,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import proyecto.programacion02.controllers.CategoriaDAO;
 import proyecto.programacion02.controllers.ProductoDAO;
 import proyecto.programacion02.controllers.ProductosDAO;
+import proyecto.programacion02.controllers.ProveedorDAO;
+import proyecto.programacion02.models.Categoria;
 import proyecto.programacion02.models.Producto;
+import proyecto.programacion02.models.Proveedor;
 
 /**
  *
- * @author reymo
+ * @author reymo 
  */
 public class frmProducto extends javax.swing.JInternalFrame {
      ProductoDAO productosDao = new ProductoDAO();
+    CategoriaDAO CategoriaDao;
+    ProveedorDAO proveedoresDao;
     /**
      * Creates new form frmProducto1
      */
@@ -30,6 +36,8 @@ public class frmProducto extends javax.swing.JInternalFrame {
         this.cmbProveedor.setModel(productosDao.Obt_Proveedor());
         this.cmbCategoria.setModel(productosDao.Obt_Categoria());
         cargarDatosProducto();
+         CategoriaDao = new CategoriaDAO();
+         proveedoresDao = new ProveedorDAO();
     }
 
     /**
@@ -59,6 +67,34 @@ public class frmProducto extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         cmbCategoria = new javax.swing.JComboBox<>();
         cmbProveedor = new javax.swing.JComboBox<>();
+        btnAddProveedor = new javax.swing.JButton();
+        btnAddCatego = new javax.swing.JButton();
+        winAddCategoria = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        txtCategoriaId = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtNombreCategoria = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtNombreDesc = new javax.swing.JTextArea();
+        btnAtrasCategoria = new javax.swing.JButton();
+        btnSaveCategoria = new javax.swing.JButton();
+        winAddProveedor = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        txtIdWinProveedor = new javax.swing.JTextField();
+        txtCompaniaWinProveedor = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtRepresentanteWinProveedor = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtTelefonoWinProveedor = new javax.swing.JTextField();
+        btnGuardarProveedor = new javax.swing.JButton();
+        btnCerrarProveedor = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -141,6 +177,20 @@ public class frmProducto extends javax.swing.JInternalFrame {
             }
         });
 
+        btnAddProveedor.setText("Agregar Proveedor");
+        btnAddProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProveedorActionPerformed(evt);
+            }
+        });
+
+        btnAddCatego.setText("Agregar Categoria");
+        btnAddCatego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCategoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout winProductoLayout = new javax.swing.GroupLayout(winProducto.getContentPane());
         winProducto.getContentPane().setLayout(winProductoLayout);
         winProductoLayout.setHorizontalGroup(
@@ -153,23 +203,27 @@ public class frmProducto extends javax.swing.JInternalFrame {
                     .addGroup(winProductoLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(winProductoLayout.createSequentialGroup()
                                 .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
+                                    .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)))
                                 .addGap(26, 26, 26)
-                                .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                                    .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                                    .addComponent(txtProducto)
-                                    .addComponent(cmbProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                        .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                        .addComponent(txtProducto)
+                                        .addComponent(cmbProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnAddCatego, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAddProveedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         winProductoLayout.setVerticalGroup(
@@ -195,16 +249,280 @@ public class frmProducto extends javax.swing.JInternalFrame {
                     .addComponent(txtUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(winProductoLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(26, 26, 26)
-                        .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(cmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel6)
                     .addComponent(cmbProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addComponent(btnAddProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(winProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(cmbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(btnAddCatego, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
+        );
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/seo-and-web.png"))); // NOI18N
+        jLabel11.setText("Registro Categoria");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/aaaid card.png"))); // NOI18N
+        jLabel8.setText("ID Categoria:");
+
+        txtCategoriaId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCategoriaIdActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/taggg.png"))); // NOI18N
+        jLabel9.setText("<html>Nombre Categoria:<html>");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descripcion.png"))); // NOI18N
+        jLabel10.setText("Descripción:");
+
+        txtNombreDesc.setColumns(20);
+        txtNombreDesc.setRows(5);
+        jScrollPane2.setViewportView(txtNombreDesc);
+
+        btnAtrasCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close.png"))); // NOI18N
+        btnAtrasCategoria.setText("Cerrar");
+        btnAtrasCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasCategoriaActionPerformed(evt);
+            }
+        });
+
+        btnSaveCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/success.png"))); // NOI18N
+        btnSaveCategoria.setText("Guardar");
+        btnSaveCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveCategoriaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCategoriaId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnSaveCategoria)
+                .addGap(18, 18, 18)
+                .addComponent(btnAtrasCategoria)
+                .addGap(79, 79, 79))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCategoriaId, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(42, 42, 42))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(txtNombreCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAtrasCategoria)
+                    .addComponent(btnSaveCategoria))
+                .addGap(29, 29, 29))
+        );
+
+        javax.swing.GroupLayout winAddCategoriaLayout = new javax.swing.GroupLayout(winAddCategoria.getContentPane());
+        winAddCategoria.getContentPane().setLayout(winAddCategoriaLayout);
+        winAddCategoriaLayout.setHorizontalGroup(
+            winAddCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, winAddCategoriaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        winAddCategoriaLayout.setVerticalGroup(
+            winAddCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winAddCategoriaLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delivery-truck.png"))); // NOI18N
+        jLabel12.setText("Registro de Proveedores");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel12)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel12)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/aaaid card.png"))); // NOI18N
+        jLabel13.setText("Cedula:");
+
+        txtIdWinProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdWinProveedorActionPerformed(evt);
+            }
+        });
+
+        txtCompaniaWinProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCompaniaWinProveedorActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/company.png"))); // NOI18N
+        jLabel14.setText("Compañia:");
+
+        txtRepresentanteWinProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRepresentanteWinProveedorActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/partnership-handshake.png"))); // NOI18N
+        jLabel15.setText("Representnte:");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/phone.png"))); // NOI18N
+        jLabel16.setText("Telefono:");
+
+        txtTelefonoWinProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoWinProveedorActionPerformed(evt);
+            }
+        });
+
+        btnGuardarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/success.png"))); // NOI18N
+        btnGuardarProveedor.setText("Guardar");
+        btnGuardarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarProveedorActionPerformed(evt);
+            }
+        });
+
+        btnCerrarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close.png"))); // NOI18N
+        btnCerrarProveedor.setText("Cerrar");
+        btnCerrarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarProveedorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout winAddProveedorLayout = new javax.swing.GroupLayout(winAddProveedor.getContentPane());
+        winAddProveedor.getContentPane().setLayout(winAddProveedorLayout);
+        winAddProveedorLayout.setHorizontalGroup(
+            winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(winAddProveedorLayout.createSequentialGroup()
+                .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(winAddProveedorLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13)))
+                    .addGroup(winAddProveedorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15))))
+                .addGap(42, 42, 42)
+                .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtRepresentanteWinProveedor)
+                    .addComponent(txtCompaniaWinProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(txtIdWinProveedor)
+                    .addComponent(txtTelefonoWinProveedor))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, winAddProveedorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardarProveedor)
+                .addGap(18, 18, 18)
+                .addComponent(btnCerrarProveedor)
+                .addGap(79, 79, 79))
+        );
+        winAddProveedorLayout.setVerticalGroup(
+            winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winAddProveedorLayout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdWinProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCompaniaWinProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRepresentanteWinProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtTelefonoWinProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(winAddProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardarProveedor)
+                    .addComponent(btnCerrarProveedor))
+                .addGap(78, 78, 78))
         );
 
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.png"))); // NOI18N
@@ -327,7 +645,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         winProducto.setTitle("Guardar");
-        winProducto.setSize(550, 626);
+        winProducto.setSize(470, 690);
         winProducto.setVisible(true);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -356,7 +674,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
                 int fila = tblProducto.getSelectedRow();
                 if (fila != -1) {
-                        winProducto.setSize(550, 626);
+                        winProducto.setSize(470, 690);
                         winProducto.setTitle("Editar");
                         winProducto.setVisible(true);
                         String id = tblProducto.getValueAt(fila, 0).toString();
@@ -445,37 +763,292 @@ public class frmProducto extends javax.swing.JInternalFrame {
      winProducto.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void txtCategoriaIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriaIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCategoriaIdActionPerformed
+
+    private void btnAddProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProveedorActionPerformed
+        winAddProveedor.setSize(440, 520);
+        winAddProveedor.setVisible(true);
+        winAddProveedor.setTitle("Guardar un Proveedor");
+        LimpiarCamposWinProveedor();
+    }//GEN-LAST:event_btnAddProveedorActionPerformed
+
+    private void btnAddCategoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCategoActionPerformed
+        winAddCategoria.setSize(470, 600);
+        winAddCategoria.setTitle("Guardar");
+        winAddCategoria.setVisible(true);
+        
+        LimpiarCamposWinCatego();
+    }//GEN-LAST:event_btnAddCategoActionPerformed
+
+    private void btnSaveCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveCategoriaActionPerformed
+            String msgError = ValidarDatosWinCategoria();
+            if (msgError.equals("")) {
+            Categoria cats = new Categoria();
+            cats.setIdCategoria(txtCategoriaId.getText());
+            cats.setNombreCategoria(txtNombreCategoria.getText());
+            cats.setDescripcion(txtNombreDesc.getText());
+
+            if (winAddCategoria.getTitle().equals("Guardar")) {
+                if (CategoriaDao.buscarCategoria(cats.getIdCategoria()) == null) {
+                    if (CategoriaDao.GuardarCategoria(cats)) {
+                        cargarCategoria();
+                        JOptionPane.showMessageDialog(winAddCategoria,
+                                "Categoria guardado exitosamente", "Guardar",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        winAddCategoria.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(winAddCategoria,
+                                "Error al intentar guardar", "Guardar",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(winAddCategoria, "Identificacion ya registrada",
+                            "Guardar", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {//Desea editar // no estoy seguro si nesecita esa parte el boton pero yo la pongo por si acaso 
+                if (CategoriaDao.editarCategoria(cats)) {
+                    cargarCategoria();
+                    JOptionPane.showMessageDialog(winAddCategoria,
+                            "Proveedor editado exitosamente", "Editar",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    winAddCategoria.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(winAddCategoria,
+                            "Error al intentar editar", "Editar",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+                
+                
+        } else {
+            JOptionPane.showMessageDialog(winAddCategoria, msgError, "Guardar",
+                    JOptionPane.ERROR_MESSAGE);
+       
+        }
+    }//GEN-LAST:event_btnSaveCategoriaActionPerformed
+
+    private void btnAtrasCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasCategoriaActionPerformed
+        winAddCategoria.dispose();
+    }//GEN-LAST:event_btnAtrasCategoriaActionPerformed
+
+    private void txtIdWinProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdWinProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdWinProveedorActionPerformed
+
+    private void txtCompaniaWinProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCompaniaWinProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCompaniaWinProveedorActionPerformed
+
+    private void txtRepresentanteWinProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepresentanteWinProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRepresentanteWinProveedorActionPerformed
+
+    private void txtTelefonoWinProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoWinProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoWinProveedorActionPerformed
+
+    private void btnCerrarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarProveedorActionPerformed
+       winAddProveedor.dispose();
+    }//GEN-LAST:event_btnCerrarProveedorActionPerformed
+
+    private void btnGuardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProveedorActionPerformed
+              String msgError = ValidarDatosProveedor();
+        if (msgError.equals("")) {
+            Proveedor proveedors = new Proveedor();
+            proveedors.setId(txtIdWinProveedor.getText());
+            proveedors.setNombre(txtRepresentanteWinProveedor.getText());
+            proveedors.setTelefono(txtTelefonoWinProveedor.getText());
+            proveedors.setCompania(txtCompaniaWinProveedor.getText());
+  
+            if (winAddProveedor.getTitle().equals("Guardar")) {
+                if (proveedoresDao.buscarProveedor(proveedors.getId()) == null) {
+                    if (proveedoresDao.guardarProveedor(proveedors)) {
+                        cargarDatosProveedor();
+                        JOptionPane.showMessageDialog(winAddProveedor,
+                            "Proveedor guardado exitosamente", "Guardar",
+                            JOptionPane.INFORMATION_MESSAGE);
+                        winAddProveedor.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(winAddProveedor,
+                            "Error al intentar guardar", "Guardar",
+                            JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(winAddProveedor, "Identificacion ya registrada",
+                        "Guardar", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {//Desea editar
+//                if (proveedoresDao.editarProveedor(proveedor)) {
+//                    cargarDatosProveedor();
+//                    JOptionPane.showMessageDialog(winAddProveedor,
+//                        "Proveedor editado exitosamente", "Editar",
+//                        JOptionPane.INFORMATION_MESSAGE);
+//                    winAddProveedor.dispose();
+//                } else {
+//                    JOptionPane.showMessageDialog(winAddProveedor,
+//                        "Error al intentar editar", "Editar",
+//                        JOptionPane.ERROR_MESSAGE);
+//                }
+//            }
+//
+//        } else {
+            JOptionPane.showMessageDialog(winAddProveedor, msgError, "Guardar",
+                JOptionPane.ERROR_MESSAGE);
+            }
+            }
+    }//GEN-LAST:event_btnGuardarProveedorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAddCatego;
+    private javax.swing.JButton btnAddProveedor;
+    private javax.swing.JButton btnAtrasCategoria;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCerrarProveedor;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnGuardarProveedor;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnSaveCategoria;
     private javax.swing.JComboBox<String> cmbCategoria;
     private javax.swing.JComboBox<String> cmbProveedor;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tblProducto;
+    private javax.swing.JTextField txtCategoriaId;
+    private javax.swing.JTextField txtCompaniaWinProveedor;
+    private javax.swing.JTextField txtIdWinProveedor;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreCategoria;
+    private javax.swing.JTextArea txtNombreDesc;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtProducto;
+    private javax.swing.JTextField txtRepresentanteWinProveedor;
+    private javax.swing.JTextField txtTelefonoWinProveedor;
     private javax.swing.JTextField txtUnidades;
+    private javax.swing.JDialog winAddCategoria;
+    private javax.swing.JDialog winAddProveedor;
     private javax.swing.JDialog winProducto;
     // End of variables declaration//GEN-END:variables
+       public void LimpiarCamposWinProveedor(){
+        
+      
+        txtIdWinProveedor.setText(""); 
+        txtRepresentanteWinProveedor.setText("");
+        txtTelefonoWinProveedor.setText("");
+        txtCompaniaWinProveedor.setText("");
+        
+        
+        
+    }
+    
+    private void cargarDatosProveedor() {
+        proveedoresDao.conectarBD();
+        ResultSet rs = proveedoresDao.cargarProveedor();
+        if (rs !=null){
+            System.out.println("Datos de proveedor cargados con exito");
+        //tblProveedores.setModel(proveedoresDao.cargarEnTabla(rs));
+        //lblTotal.setText("TOTAL: "+ tblProveedores.getRowCount());
+        }
+        proveedoresDao.desconectarBD();
+    }
+    
+    
+    private String ValidarDatosProveedor(){
+       if (txtIdWinProveedor.getText().trim().equals("")){
+    txtIdWinProveedor.requestFocus();
+    return "Identificacion es requerida";
+    }
+    if (txtRepresentanteWinProveedor.getText().trim().equals("")){
+    txtRepresentanteWinProveedor.requestFocus();
+    return "El nombre del Representante es requerido";
+    }
+    if (txtTelefonoWinProveedor.getText().trim().equals("")){
+    txtTelefonoWinProveedor.requestFocus();
+    return "El telefono es requerido";
+    }else{
+        try{
+        Integer.parseInt(txtTelefonoWinProveedor.getText());
+        }catch(NumberFormatException e){
+        return "El telefono solo admite numeros.";
+        }
+    }
+    if (txtCompaniaWinProveedor.getText().trim().equals("")){
+    txtCompaniaWinProveedor.requestFocus();
+    return "La compañia es requerido";}
+     return ""; 
+    }
+    
+    
+    
+    
+    private String ValidarDatosWinCategoria() {
+        if (txtCategoriaId.getText().trim().equals("")) {
+            txtCategoriaId.requestFocus();
+            return "Ingrese un numero";
+        }
+        if (txtNombreCategoria.getText().trim().equals("")) {
+            txtNombreCategoria.requestFocus();
+            return "La categoria es requerida";
+        }
+        if (txtNombreDesc.getText().trim().equals("")) {
+            txtNombreDesc.requestFocus();
+            return "Ingrese una descripcion del producto";
+        }
+        return "";
+    }
+    
+    
+    private void cargarCategoria() {
 
+        CategoriaDao.conectarBD();
+        ResultSet rs = CategoriaDao.cargarDatosCategoria();
+        if (rs != null) {
+            System.out.println("Datos cargados");
+            //tblProductos.setModel(CategoriaDao.cargarEnTabla(rs));
+            //lbltotal.setText("TOTAL: " + tblProductos.getRowCount());
+        }
+        CategoriaDao.desconectarBD();
+
+    }
+    public void LimpiarCamposWinCatego(){
+        
+      
+        txtCategoriaId.setText(""); 
+        txtNombreCategoria.setText("");
+        txtNombreDesc.setText("");
+        
+        
+        
+    }
  public void limpiarCampos(){
         
         //Limpia los campos necesarios
