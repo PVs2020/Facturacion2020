@@ -1,6 +1,7 @@
 
 package proyecto.programacion02.views;
 
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import proyecto.programacion02.models.Usuario;
@@ -18,6 +19,8 @@ Usuario usuario;
         initComponents();
         this.setTitle("Faturacion MAX");
         this.setExtendedState(MAXIMIZED_BOTH);
+        ImageIcon icono = new javax.swing.ImageIcon(getClass().getResource("/img/vegetable.png"));
+        this.setIconImage(icono.getImage());
         
         
         
@@ -69,9 +72,12 @@ Usuario usuario;
 
         jToolBar1.setRollover(true);
 
-        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
-        btnUsuario.setText("Usuarios");
-        btnUsuario.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        btnUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
+        btnUsuario.setText("Usuario");
+        btnUsuario.setFocusable(false);
+        btnUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
@@ -79,7 +85,8 @@ Usuario usuario;
         });
         jToolBar1.add(btnUsuario);
 
-        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/person.png"))); // NOI18N
+        btnCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buyer.png"))); // NOI18N
         btnCliente.setText("Cliente");
         btnCliente.setFocusable(false);
         btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -91,7 +98,8 @@ Usuario usuario;
         });
         jToolBar1.add(btnCliente);
 
-        btnProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/provider.png"))); // NOI18N
+        btnProveedores.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/truck (1).png"))); // NOI18N
         btnProveedores.setText("Proveedores");
         btnProveedores.setFocusable(false);
         btnProveedores.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -103,6 +111,7 @@ Usuario usuario;
         });
         jToolBar1.add(btnProveedores);
 
+        btnCategorias.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCategorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/categories.png"))); // NOI18N
         btnCategorias.setText("Categorias");
         btnCategorias.setFocusable(false);
@@ -115,6 +124,7 @@ Usuario usuario;
         });
         jToolBar1.add(btnCategorias);
 
+        btnProducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/products.png"))); // NOI18N
         btnProducto.setText("Productos");
         btnProducto.setFocusable(false);
@@ -127,8 +137,9 @@ Usuario usuario;
         });
         jToolBar1.add(btnProducto);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/facturas.png"))); // NOI18N
-        jButton2.setText("Facturaciòn");
+        jButton2.setText("Facturación");
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -139,6 +150,7 @@ Usuario usuario;
         });
         jToolBar1.add(jButton2);
 
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setFocusable(false);
@@ -154,7 +166,7 @@ Usuario usuario;
         desk.setBackground(new java.awt.Color(255, 255, 255));
         desk.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/welcome.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/GoodbadWEAPON.jpg"))); // NOI18N
 
         desk.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -228,11 +240,6 @@ Usuario usuario;
         ValidarJInternalFrame(cliente);
     }//GEN-LAST:event_btnClienteActionPerformed
 
-    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        frmUsuario usua = new frmUsuario();
-        ValidarJInternalFrame(usua);
-    }//GEN-LAST:event_btnUsuarioActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         int resp = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de salir? ", 
@@ -256,6 +263,11 @@ Usuario usuario;
       frmFacturacion fact = new frmFacturacion();
         ValidarJInternalFrame(fact);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+       frmUsuario usua = new frmUsuario();
+        ValidarJInternalFrame(usua);
+    }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
