@@ -188,6 +188,11 @@ public class frmCategoria extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setTitle("Categorias");
+
         btnGuar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnGuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.png"))); // NOI18N
         btnGuar.setText("Guardar");

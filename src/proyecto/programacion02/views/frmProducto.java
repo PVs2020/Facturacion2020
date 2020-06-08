@@ -23,7 +23,7 @@ import proyecto.programacion02.models.Proveedor;
  */
 public class frmProducto extends javax.swing.JInternalFrame {
      ProductoDAO productosDao = new ProductoDAO();
-    CategoriaDAO CategoriaDao;
+    CategoriaDAO categoriaDao;
     ProveedorDAO proveedoresDao;
     /**
      * Creates new form frmProducto1
@@ -36,7 +36,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
         this.cmbProveedor.setModel(productosDao.Obt_Proveedor());
         this.cmbCategoria.setModel(productosDao.Obt_Categoria());
         cargarDatosProducto();
-         CategoriaDao = new CategoriaDAO();
+         categoriaDao = new CategoriaDAO();
          proveedoresDao = new ProveedorDAO();
     }
 
@@ -754,8 +754,8 @@ public class frmProducto extends javax.swing.JInternalFrame {
                         txtNombre.setText(producto.getNombreProducto());
                         txtPrecio.setText(Double.toString(producto.getPrecioUnidad()));
                         txtUnidades.setText(Integer.toString(producto.getUnidadExistecia()));
-                        cmbProveedor.setSelectedItem(producto.getIdProveedor());
                         cmbCategoria.setSelectedItem(producto.getIdCategoria());
+                        cmbProveedor.setSelectedItem(producto.getIdProveedor());
                       } else {
                         JOptionPane.showMessageDialog(rootPane, "Elija el Producto a Editar", "Editar", JOptionPane.ERROR_MESSAGE);
                     }
@@ -786,8 +786,8 @@ public class frmProducto extends javax.swing.JInternalFrame {
             producto.setNombreProducto(txtNombre.getText());
             producto.setPrecioUnidad(Double.parseDouble(txtPrecio.getText()));
             producto.setUnidadExistecia(Integer.parseInt(txtUnidades.getText()));
-            producto.setIdProveedor(cmbProveedor.getSelectedItem().toString());
             producto.setIdCategoria(cmbCategoria.getSelectedItem().toString());
+            producto.setIdProveedor(cmbProveedor.getSelectedItem().toString());
              if (winProducto.getTitle().equals("Guardar")) {
                 if (productosDao.buscarProducto(producto.getIdProducto()) == null) {
                     if (productosDao.guardarProducto(producto)) {
@@ -862,8 +862,8 @@ public class frmProducto extends javax.swing.JInternalFrame {
             cats.setDescripcion(txtNombreDesc.getText());
 
             if (winAddCategoria.getTitle().equals("Guardar")) {
-                if (CategoriaDao.buscarCategoria(cats.getIdCategoria()) == null) {
-                    if (CategoriaDao.GuardarCategoria(cats)) {
+                if (categoriaDao.buscarCategoria(cats.getIdCategoria()) == null) {
+                    if (categoriaDao.GuardarCategoria(cats)) {
                         cargarCategoria();
                         JOptionPane.showMessageDialog(winAddCategoria,
                                 "Categoria guardado exitosamente", "Guardar",
@@ -879,7 +879,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
                             "Guardar", JOptionPane.ERROR_MESSAGE);
                 }
             } else {//Desea editar // no estoy seguro si nesecita esa parte el boton pero yo la pongo por si acaso 
-                if (CategoriaDao.editarCategoria(cats)) {
+                if (categoriaDao.editarCategoria(cats)) {
                     cargarCategoria();
                     JOptionPane.showMessageDialog(winAddCategoria,
                             "Proveedor editado exitosamente", "Editar",
@@ -971,7 +971,6 @@ public class frmProducto extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_btnGuardarProveedorActionPerformed
 
-<<<<<<< HEAD
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
         if (cmbSelect.getSelectedIndex() == 0) {
@@ -999,13 +998,13 @@ public class frmProducto extends javax.swing.JInternalFrame {
             new String[]{
                 "IDPRODUCTO", "NOMBREPRODUCTO", "PRECIOUNIDAD", "UNIDADEXISTENTE","IDPROVEEDOR", "IDCATEGORIA"
             }));
-            cargarDatosProveedor();
+             cargarDatosProducto();
     }//GEN-LAST:event_jButton1ActionPerformed
-=======
+
     private void cmbProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbProveedorActionPerformed
->>>>>>> 6b8a0d6187488e13ffd16a357f4799434a412bee
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1088,8 +1087,8 @@ public class frmProducto extends javax.swing.JInternalFrame {
         ResultSet rs = proveedoresDao.cargarProveedor();
         if (rs !=null){
             System.out.println("Datos de proveedor cargados con exito");
-        //tblProveedores.setModel(proveedoresDao.cargarEnTabla(rs));
-        //lblTotal.setText("TOTAL: "+ tblProveedores.getRowCount());
+        tblProducto.setModel(productosDao.cargarEnTabla(rs));
+        lblTotal.setText("TOTAL: "+ tblProducto.getRowCount());
         }
         proveedoresDao.desconectarBD();
     }
@@ -1142,14 +1141,14 @@ public class frmProducto extends javax.swing.JInternalFrame {
     
     private void cargarCategoria() {
 
-        CategoriaDao.conectarBD();
-        ResultSet rs = CategoriaDao.cargarDatosCategoria();
+        categoriaDao.conectarBD();
+        ResultSet rs = categoriaDao.cargarDatosCategoria();
         if (rs != null) {
             System.out.println("Datos cargados");
             //tblProductos.setModel(CategoriaDao.cargarEnTabla(rs));
             //lbltotal.setText("TOTAL: " + tblProductos.getRowCount());
         }
-        CategoriaDao.desconectarBD();
+        categoriaDao.desconectarBD();
 
     }
     public void LimpiarCamposWinCatego(){

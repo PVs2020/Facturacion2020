@@ -43,11 +43,11 @@ public class ProductoDAO extends Conexion {
         DefaultComboBoxModel listaModeloProveedor = new DefaultComboBoxModel();
         listaModeloProveedor.addElement("Seleccione un proveedor");
         conectarBD();
-        ResultSet res = this.consulta("Select Compania from proveedor ORDER BY Compania ASC;");
+        ResultSet res = this.consulta("Select IdProveedor from proveedor ORDER BY IdProveedor ASC;");
 
         try {
             while (res.next()) {
-                listaModeloProveedor.addElement(res.getString("Compania"));
+                listaModeloProveedor.addElement(res.getString("IdProveedor"));
             }
             res.close();
         } catch (SQLException e) {
@@ -61,11 +61,11 @@ public class ProductoDAO extends Conexion {
         DefaultComboBoxModel listaModeloProveedor = new DefaultComboBoxModel();
         listaModeloProveedor.addElement("Seleccione una categoria de productos");
         conectarBD();
-        ResultSet res = this.consulta("Select NombreCategoria from categoria ORDER BY NombreCategoria ASC;");
+        ResultSet res = this.consulta("Select IdCategoria from categoria ORDER BY IdCategoria ASC;");
 
         try {
             while (res.next()) {
-                listaModeloProveedor.addElement(res.getString("NombreCategoria"));
+                listaModeloProveedor.addElement(res.getString("IdCategoria"));
             }
            
             desconectarBD();
@@ -96,8 +96,8 @@ public class ProductoDAO extends Conexion {
             obj_Procedimiento.setString(2, producto.getNombreProducto());
             obj_Procedimiento.setDouble(3, producto.getPrecioUnidad());
             obj_Procedimiento.setInt(4, producto.getUnidadExistecia());
-            obj_Procedimiento.setString(5, producto.getIdProveedor());
-            obj_Procedimiento.setString(6, producto.getIdCategoria());
+            obj_Procedimiento.setString(5, producto.getIdCategoria());
+            obj_Procedimiento.setString(6, producto.getIdProveedor());
             rpt = obj_Procedimiento.executeUpdate() == 1;
             desconectarBD();
         } catch (SQLException e) {
@@ -115,8 +115,8 @@ public class ProductoDAO extends Conexion {
             obj_Procedimiento.setString(2, producto.getNombreProducto());
             obj_Procedimiento.setDouble(3, producto.getPrecioUnidad());
             obj_Procedimiento.setInt(4, producto.getUnidadExistecia());
-            obj_Procedimiento.setString(5, producto.getIdProveedor());
-            obj_Procedimiento.setString(6, producto.getIdCategoria());
+            obj_Procedimiento.setString(5, producto.getIdCategoria());
+            obj_Procedimiento.setString(6, producto.getIdProveedor());
             rpt = obj_Procedimiento.executeUpdate() == 1;
             desconectarBD();
         } catch (SQLException e) {
@@ -155,8 +155,8 @@ public class ProductoDAO extends Conexion {
                 producto.setNombreProducto(rs.getString(2));
                 producto.setPrecioUnidad(rs.getDouble(3));
                 producto.setUnidadExistecia((rs.getInt(4)));
-                producto.setIdProveedor(rs.getString(5));
-                producto.setIdCategoria(rs.getString(6));  
+                producto.setIdCategoria(rs.getString(5));  
+                producto.setIdProveedor(rs.getString(6));
             }
             desconectarBD();
         } catch (SQLException e) {
@@ -164,6 +164,7 @@ public class ProductoDAO extends Conexion {
         }
         return producto;
     }
+    
     public void cargarReporteProducto(){
         conectarBD();
         JasperReport reporte= null;
