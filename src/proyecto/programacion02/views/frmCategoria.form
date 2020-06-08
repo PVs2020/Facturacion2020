@@ -281,27 +281,22 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btnGuar" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnEdit" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="23" pref="39" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnGuar" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEdit" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnElimin" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnImprimir" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnexit" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cmbCatego" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtConsulta" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="btnCon" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="btnElimin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnImprimir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnexit" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbCatego" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtConsulta" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnCon" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace type="separate" pref="39" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

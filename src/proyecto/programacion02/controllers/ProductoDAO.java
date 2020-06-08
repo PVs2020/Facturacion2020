@@ -5,10 +5,17 @@
  */
 package proyecto.programacion02.controllers;
 
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import static proyecto.programacion02.controllers.Conexion.conexion;
 import proyecto.programacion02.models.Producto;
 
@@ -156,5 +163,22 @@ public class ProductoDAO extends Conexion {
             System.err.println(e.getMessage());
         }
         return producto;
+    }
+    public void cargarReporteProducto(){
+        conectarBD();
+        JasperReport reporte= null;
+        JasperPrint reporte_view;
+        URL in = this.getClass().getResource("/proyecto/programacion02/Reports/rptProducto.jasper");
+        
+        try {
+            reporte = (JasperReport) JRLoader.loadObject(in);
+            reporte_view = JasperFillManager.fillReport(reporte, null, getConexion());
+           JasperViewer  jv = new JasperViewer(reporte_view, false);
+       
+            jv.setVisible(true); 
+            jv.setTitle("Visor de Reporte");
+        } catch (JRException ex) {
+                System.err.println(ex.toString());
+            }
     }
 }
