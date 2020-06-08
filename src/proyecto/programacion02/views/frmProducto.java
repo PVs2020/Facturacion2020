@@ -183,6 +183,12 @@ public class frmProducto extends javax.swing.JInternalFrame {
             }
         });
 
+        cmbProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProveedorActionPerformed(evt);
+            }
+        });
+
         btnAddProveedor.setText("Agregar Proveedor");
         btnAddProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -965,6 +971,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_btnGuardarProveedorActionPerformed
 
+<<<<<<< HEAD
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
         if (cmbSelect.getSelectedIndex() == 0) {
@@ -994,6 +1001,11 @@ public class frmProducto extends javax.swing.JInternalFrame {
             }));
             cargarDatosProveedor();
     }//GEN-LAST:event_jButton1ActionPerformed
+=======
+    private void cmbProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProveedorActionPerformed
+>>>>>>> 6b8a0d6187488e13ffd16a357f4799434a412bee
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

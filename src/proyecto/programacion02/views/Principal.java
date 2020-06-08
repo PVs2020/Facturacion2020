@@ -38,6 +38,7 @@ Usuario usuario;
         }else {
         this.setTitle("Faturacion MAX(vendedor)");
         btnUsuario.setVisible(false);
+        
         } 
         
     }
