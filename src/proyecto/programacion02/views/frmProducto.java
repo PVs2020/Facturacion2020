@@ -177,6 +177,12 @@ public class frmProducto extends javax.swing.JInternalFrame {
             }
         });
 
+        cmbProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProveedorActionPerformed(evt);
+            }
+        });
+
         btnAddProveedor.setText("Agregar Proveedor");
         btnAddProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -905,6 +911,10 @@ public class frmProducto extends javax.swing.JInternalFrame {
             }
             }
     }//GEN-LAST:event_btnGuardarProveedorActionPerformed
+
+    private void cmbProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProveedorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
