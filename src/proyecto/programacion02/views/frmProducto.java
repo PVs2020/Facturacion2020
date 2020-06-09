@@ -95,6 +95,8 @@ public class frmProducto extends javax.swing.JInternalFrame {
         txtTelefonoWinProveedor = new javax.swing.JTextField();
         btnGuardarProveedor = new javax.swing.JButton();
         btnCerrarProveedor = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        mnEnviarDatos = new javax.swing.JMenuItem();
         lblTotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducto = new javax.swing.JTable();
@@ -537,6 +539,14 @@ public class frmProducto extends javax.swing.JInternalFrame {
                 .addGap(78, 78, 78))
         );
 
+        mnEnviarDatos.setText("Enviar Datos");
+        mnEnviarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnEnviarDatosActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(mnEnviarDatos);
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -554,6 +564,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblProducto.setComponentPopupMenu(jPopupMenu1);
         jScrollPane1.setViewportView(tblProducto);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta de Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(0, 102, 255))); // NOI18N
@@ -1005,6 +1016,39 @@ public class frmProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbProveedorActionPerformed
 
+    private void mnEnviarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEnviarDatosActionPerformed
+        // TODO add your handling code here:
+                int fila = tblProducto.getSelectedRow();
+        try {
+            if(fila==-1)
+            {
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ningun dato");
+
+            }
+            else
+            {
+               String id = tblProducto.getValueAt(fila, 0).toString();
+            Producto producto = productosDao.buscarProducto(id);
+            frmFacturacion.txtIdProducto.setText(producto.getIdProducto());
+            frmFacturacion.txtProducto.setText(producto.getNombreProducto());
+            frmFacturacion.txtCantidad.setText(Integer.toString(producto.getUnidadExistecia()));
+//            this.dispose();
+            
+            String cantidad = JOptionPane.showInputDialog("ingrese cantidad");
+            if(cantidad.equals("") || cantidad.equals("0") ){
+                JOptionPane.showMessageDialog(rootPane, "Debe de ingrese una cantidad");
+            }else{
+                //convierte el parametro string que ingreso en showInputDialogo a int
+                int cantConver =Integer.parseInt(cantidad);
+              //aqui como que hiria la restricion del inventario
+            }
+            
+
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_mnEnviarDatosActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1049,10 +1093,12 @@ public class frmProducto extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblTotal;
+    private javax.swing.JMenuItem mnEnviarDatos;
     private javax.swing.JTable tblProducto;
     private javax.swing.JTextField txtCategoriaId;
     private javax.swing.JTextField txtCompaniaWinProveedor;
