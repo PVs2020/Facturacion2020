@@ -381,8 +381,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="btnBuscar" min="-2" pref="73" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" min="-2" pref="85" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="91" max="-2" attributes="0"/>
                       </Group>
                       <Component id="txtDatos" min="-2" pref="214" max="-2" attributes="0"/>

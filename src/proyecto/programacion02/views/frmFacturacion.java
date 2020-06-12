@@ -252,6 +252,10 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nombre del cliente:");
 
@@ -548,7 +552,7 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed
-        // TODO add your handling code here:
+        
         frmProducto produc = new frmProducto();
         Principal.desk.add(produc);
         produc.toFront();

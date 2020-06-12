@@ -498,11 +498,13 @@
         <Component class="javax.swing.JComboBox" name="cmbSelect">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="6">
                 <StringItem index="0" value="(Eliga Categoria)"/>
                 <StringItem index="1" value="Id Cliente"/>
-                <StringItem index="2" value="Nombre "/>
+                <StringItem index="2" value="Nombre"/>
                 <StringItem index="3" value="Telefono"/>
+                <StringItem index="4" value="Dirrecion"/>
+                <StringItem index="5" value="Fax"/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

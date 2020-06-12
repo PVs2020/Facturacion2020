@@ -286,7 +286,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
 
         lblTotal.setText("Total:");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta de Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 102, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consulta de Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 255))); // NOI18N
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search.png"))); // NOI18N
         jButton5.setText("Buscar");
@@ -305,7 +305,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Buscar por:");
 
-        cmbSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(Eliga Categoria)", "Id Cliente", "Nombre ", "Telefono" }));
+        cmbSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "(Eliga Categoria)", "Id Cliente", "Nombre", "Telefono", "Dirrecion", "Fax" }));
         cmbSelect.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cmbSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -666,15 +666,21 @@ public void FiltrarDatos(){
         ResultSet rs;
         conexion.conectarBD();
     switch (cmbSelect.getSelectedItem().toString()) {
-        case "Id Proveedor":
-            sql = "SELECT * FROM proveedor WHERE IdProveedor LIKE '%" + txtDatos.getText() + "%'";
+        case "Id Cliente":
+            sql = "SELECT * FROM cliente WHERE IdCliente LIKE '%" + txtDatos.getText() + "%'";
             break;
-        case "Nombre Representante":
-            sql = "SELECT * FROM proveedor WHERE NombreRepresentante LIKE '%" + txtDatos.getText() + "%'";
+        case "Nombre":
+            sql = "SELECT * FROM cliente WHERE NombreCliente LIKE '%" + txtDatos.getText() + "%'";
             break;
-        case "Compañia":
-            sql = "SELECT * FROM proveedor WHERE Compañia LIKE '%" + txtDatos.getText() + "%'";
+        case "Dirrecion":
+            sql = "SELECT * FROM cliente WHERE Dirrecion LIKE '%" + txtDatos.getText() + "%'";
             break;
+        case "Telefono":
+            sql = "SELECT * FROM cliente WHERE Telefono LIKE '%" + txtDatos.getText() + "%'";
+            break;    
+        case "Fax":
+            sql = "SELECT * FROM cliente WHERE Fax LIKE '%" + txtDatos.getText() + "%'";
+            break;    
         default:
             sql = " ";
             break;

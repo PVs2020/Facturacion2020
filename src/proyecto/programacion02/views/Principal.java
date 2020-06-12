@@ -64,8 +64,18 @@ Usuario usuario;
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Inicio = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        Proveedor = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
@@ -185,17 +195,98 @@ Usuario usuario;
         );
 
         Inicio.setText("Inicio");
+
+        jMenuItem5.setText("Usuario");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        Inicio.add(jMenuItem5);
+
+        jMenuItem6.setText("Cliente");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        Inicio.add(jMenuItem6);
+
+        Proveedor.setText("Proveedor");
+        Proveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProveedorActionPerformed(evt);
+            }
+        });
+        Inicio.add(Proveedor);
+
+        jMenuItem7.setText("Categorias");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        Inicio.add(jMenuItem7);
+
+        jMenuItem8.setText("Productos");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        Inicio.add(jMenuItem8);
+
+        jMenuItem9.setText("Facturacion");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        Inicio.add(jMenuItem9);
+
+        jMenuItem10.setText("Salir");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        Inicio.add(jMenuItem10);
+
         jMenuBar1.add(Inicio);
 
         jMenu2.setText("Ventanas");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("En Paralelo");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
         jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setText("En Cascada");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setText("Cerrar Actual");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Cerrar Todas");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
 
@@ -233,7 +324,18 @@ Usuario usuario;
     }//GEN-LAST:event_btnProveedoresActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+           int x,y;
+        int  i;
+        JInternalFrame v[] = desk.getAllFrames();
+        x=0;
+        y=0;
+        for (i=v.length-1;i>=0;i--) {
+            v[i].setSize(300,300);
+            v[i].setLocation(x,y);
+            x=x+300;// define el tamaña de separacion de cada frame
+            y=0;      //mantiene el rango absoluto      
+        }
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
@@ -269,6 +371,75 @@ Usuario usuario;
        frmUsuario usua = new frmUsuario();
         ValidarJInternalFrame(usua);
     }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+           int x,y;
+        int  i;
+        JInternalFrame v[] = desk.getAllFrames();
+        x=0;
+        y=0;
+        for (i=v.length-1;i>=0;i--) {
+            v[i].setSize(600,400);
+            v[i].setLocation(x,y);
+            x=x+30;
+            y=y+30;            
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+              JInternalFrame per =(JInternalFrame) desk.getSelectedFrame();
+        if(per!=null){
+        
+        per.dispose();
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+            int i;
+        JInternalFrame v[]  = desk.getAllFrames();
+        for (i=0; i<v.length; i++) {
+            v[i].dispose();
+            
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        frmUsuario usua = new frmUsuario();
+        ValidarJInternalFrame(usua);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+         frmCliente cliente = new frmCliente();
+        ValidarJInternalFrame(cliente);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void ProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorActionPerformed
+         frmProveedor pro = new frmProveedor();
+        ValidarJInternalFrame(pro);
+    }//GEN-LAST:event_ProveedorActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        frmCategoria cat = new frmCategoria();
+        ValidarJInternalFrame(cat);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+         frmProducto pro =  new frmProducto();
+        ValidarJInternalFrame(pro);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+       frmFacturacion fact = new frmFacturacion();
+        ValidarJInternalFrame(fact);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+         int resp = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de salir? ", 
+                "Salir", JOptionPane.YES_NO_OPTION);
+        if (resp==JOptionPane.YES_OPTION){
+        System.exit(1);
+        }
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,6 +478,7 @@ Usuario usuario;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Inicio;
+    private javax.swing.JMenuItem Proveedor;
     private javax.swing.JButton btnCategorias;
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnProducto;
@@ -321,6 +493,15 @@ Usuario usuario;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
       
