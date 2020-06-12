@@ -108,7 +108,7 @@ public class UsuarioDAO extends Conexion {
             if (rs.next()) {
                 if (usua.getContraseña().equals(rs.getString(2))) {
                     usua.setUsuario(rs.getString(1));
-                    //  usua.setContraseña(rs.getString(2));
+                    usua.setContraseña(rs.getString(2));
                     usua.setEstado(rs.getString(3));
                     usua.setTipo(rs.getString(4));
                     return true;
