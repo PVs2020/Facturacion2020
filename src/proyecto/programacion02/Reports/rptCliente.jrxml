@@ -31,9 +31,9 @@
 	<title>
 		<band height="70" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="142" y="0" width="263" height="33" uuid="06db0d20-2d17-465c-928b-c3d9955863fa"/>
+				<reportElement style="Title" x="140" y="17" width="249" height="33" uuid="06db0d20-2d17-465c-928b-c3d9955863fa"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Leaf Green Title]]></text>
+				<text><![CDATA[Reporte de Cliente ]]></text>
 			</staticText>
 		</band>
 	</title>

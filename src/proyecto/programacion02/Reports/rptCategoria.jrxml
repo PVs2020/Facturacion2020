@@ -25,7 +25,7 @@
 	<title>
 		<band height="70" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="159" y="14" width="263" height="33" uuid="f9280cd0-167d-4422-a717-78794b8d3e3a"/>
+				<reportElement style="Title" x="150" y="18" width="263" height="33" uuid="f9280cd0-167d-4422-a717-78794b8d3e3a"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Reporte Categoria]]></text>
 			</staticText>

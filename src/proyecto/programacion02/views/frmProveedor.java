@@ -55,6 +55,7 @@ ProveedorDAO proveedoresDao;
         btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JButton();
         txtDatos = new javax.swing.JTextField();
@@ -229,6 +230,15 @@ ProveedorDAO proveedoresDao;
             }
         });
 
+        btnImprimir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnImprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/print.png"))); // NOI18N
+        btnImprimir.setText("Imprimir");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -240,7 +250,9 @@ ProveedorDAO proveedoresDao;
                 .addComponent(btnEditar)
                 .addGap(22, 22, 22)
                 .addComponent(btnEliminar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnImprimir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -252,7 +264,8 @@ ProveedorDAO proveedoresDao;
                     .addComponent(btnGuardar)
                     .addComponent(btnEliminar)
                     .addComponent(btnEditar)
-                    .addComponent(jButton6))
+                    .addComponent(jButton6)
+                    .addComponent(btnImprimir))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -447,6 +460,7 @@ ProveedorDAO proveedoresDao;
             winProveedor.setTitle("Editar");
             winProveedor.setLocationRelativeTo(tblProveedores);
             winProveedor.setVisible(true);
+            txtId.setEditable(false);
             String id = tblProveedores.getValueAt(fila, 0).toString();
             Proveedor proveedor = proveedoresDao.buscarProveedor(id);
             txtId.setText(proveedor.getId());
@@ -510,6 +524,10 @@ ProveedorDAO proveedoresDao;
             }));
         cargarDatosProveedor();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        proveedoresDao.cargarReporteCategoria();
+    }//GEN-LAST:event_btnImprimirActionPerformed
    public void FiltrarDatos(){
   Conexion conexion = new Conexion();
         String sql;
@@ -545,6 +563,7 @@ ProveedorDAO proveedoresDao;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JComboBox<String> cmbSelect;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;

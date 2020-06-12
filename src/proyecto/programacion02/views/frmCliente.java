@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proyecto.programacion02.views;
 
 import java.sql.ResultSet;
@@ -13,7 +9,7 @@ import proyecto.programacion02.models.Cliente;
 
 /**
  *
- * @author reymo
+ * @author Reymond
  */
 public class frmCliente extends javax.swing.JInternalFrame {
 
@@ -472,6 +468,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         if (fila != -1) {
             winCliente.setSize(414, 515);
             winCliente.setTitle("Editar");
+            winCliente.setLocationRelativeTo(tblCliente);
             txtId.setEditable(false);
             winCliente.setVisible(true);
             String id = tblCliente.getValueAt(fila, 0).toString();
@@ -509,7 +506,6 @@ public class frmCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        // TODO add your handling code here:
         clienteDao.cargarReporteCliente();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
@@ -617,6 +613,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
        }
         clienteDao.desconectarBD();
     }
+    
     private void limpiarCampos(){
        txtId.setText("");
        txtNombre.setText("");
@@ -626,6 +623,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
    }
    
     private String ValidarDatos(){
+        
     if (txtId.getText().trim().equals("")){
     txtId.requestFocus();
     return "Identificacion es requerida";
@@ -655,7 +653,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         try{
         Integer.parseInt(txtFax.getText());
         }catch(NumberFormatException e){
-        return "El telefono solo admite numeros.";
+        return "El fax solo admite numeros.";
         }
     }
       return ""; 
@@ -693,4 +691,6 @@ public void FiltrarDatos(){
             }
         }conexion.desconectarBD();
 }
+
+
 }

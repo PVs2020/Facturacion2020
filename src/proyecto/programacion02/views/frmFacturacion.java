@@ -8,6 +8,7 @@ package proyecto.programacion02.views;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.logging.*;
 import proyecto.programacion02.controllers.Conexion;
 import proyecto.programacion02.controllers.FacturaDAO;
@@ -548,6 +549,7 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
         Principal.desk.add(cli);
         cli.toFront();
         cli.setVisible(true);
+        
 
     }//GEN-LAST:event_btnClienteActionPerformed
 

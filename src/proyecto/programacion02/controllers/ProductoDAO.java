@@ -169,7 +169,7 @@ public class ProductoDAO extends Conexion {
         conectarBD();
         JasperReport reporte= null;
         JasperPrint reporte_view;
-        URL in = this.getClass().getResource("/proyecto/programacion02/Reports/rptProducto.jasper");
+        URL in = this.getClass().getResource("/proyecto/programacion02/Reports/rptProductos.jasper");
         
         try {
             reporte = (JasperReport) JRLoader.loadObject(in);
@@ -182,4 +182,6 @@ public class ProductoDAO extends Conexion {
                 System.err.println(ex.toString());
             }
     }
+    
+ 
 }

@@ -125,20 +125,20 @@ public class CategoriaDAO extends Conexion {
         return cat;
     } 
 //    
-//           public void cargarReporteCategoria() {
-//
-//        conectarBD();
-//        JasperReport reportes;
-//        JasperPrint reporte_view;
-//        try {
-//            URL in = this.getClass().getResource("/proyecto/programacion02/Reports/rptCategoria.jasper");
-//            reportes = (JasperReport) JRLoader.loadObject(in);
-//            reporte_view = JasperFillManager.fillReport(reportes, null, getConexion());
-//            JasperViewer.viewReport(reporte_view, false); 
-//        } catch (JRException ex) {
-//            
-//            System.err.println(ex.toString());
-//        }
-//
-//    }
+        public void cargarReporteCategoria() {
+
+        conectarBD();
+        JasperReport reportes;
+        JasperPrint reporte_view;
+        try {
+            URL in = this.getClass().getResource("/proyecto/programacion02/Reports/rptCategoria.jasper");
+            reportes = (JasperReport) JRLoader.loadObject(in);
+            reporte_view = JasperFillManager.fillReport(reportes, null, getConexion());
+            JasperViewer.viewReport(reporte_view, false);
+        } catch (JRException ex) {
+
+            System.err.println(ex.toString());
+        }
+
+    }
 }

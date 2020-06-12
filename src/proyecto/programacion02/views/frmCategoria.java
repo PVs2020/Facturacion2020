@@ -488,7 +488,7 @@ public class frmCategoria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEliminActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-        //CategoriaDao.cargarReporteCategoria();
+        CategoriaDao.cargarReporteCategoria();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed

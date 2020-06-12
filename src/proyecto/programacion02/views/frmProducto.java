@@ -779,12 +779,14 @@ public class frmProducto extends javax.swing.JInternalFrame {
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            tblProducto.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            // TODO add your handling code here:
+//            tblProducto.print();
+//        } catch (PrinterException ex) {
+//            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+     productosDao.cargarReporteProducto();
+
    
     }//GEN-LAST:event_btnImprimirActionPerformed
 
