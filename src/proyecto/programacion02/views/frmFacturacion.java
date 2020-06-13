@@ -21,7 +21,7 @@ import proyecto.programacion02.controllers.FacturaDAO;
  * @author Emma
  */
 public class frmFacturacion extends javax.swing.JInternalFrame {
-
+Conexion conexion = new Conexion();
     FacturaDAO FacturaDao;
     /**
      * Creates new form frmFacturacion
@@ -30,7 +30,7 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
         initComponents();
         FacturaDAO Factura = new FacturaDAO();
         noEditar();
-       // generarNumeroFactura();
+        generarNumeroFactura();
        //this.cmbProducto.setModel(FacturaDao.Obt_Producto());
         
     }
@@ -360,13 +360,10 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
 
         tblDetalleFac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+
             }
         ));
         jScrollPane1.setViewportView(tblDetalleFac);
@@ -528,7 +525,7 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNumFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumFacturaActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:*
     }//GEN-LAST:event_txtNumFacturaActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -537,24 +534,33 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
       DefaultTableModel modelo = (DefaultTableModel) tblDetalleFac.getModel();
-       
-       if(!txtIdCliente.getText().equals("") && !txtIdProducto.getText().equals("")){
-           Object[] fila = new Object[5];
-           fila[0]= txtIdProducto.getText();
-           fila[1]= txtProducto.getText();
-           fila[2]= txtPrecio.getText();
-           fila[3]= txtPrecio.getText();
-           //fila[4]= Calcular();
-           
-         modelo.addRow(fila);
-        tblDetalleFac.setModel(modelo);
-      limpiar();
-      Calcular();
-       }else if(txtIdCliente.getText().equals("")){
-       JOptionPane.showMessageDialog(rootPane, "Debe de ingresar a un cliente" );
-       }else{
-       JOptionPane.showMessageDialog(rootPane,"Debe de ingresar producto");
-       }
+        int conteo = 0;
+        String cant= txtCantidad.getText();
+        if (!txtIdCliente.getText().equals("") && !txtIdProducto.getText().equals("")) {
+            
+        for (int i = 0; i < tblDetalleFac.getRowCount(); i++) {
+            Object compa = tblDetalleFac.getValueAt(i, 0);
+            if (txtIdProducto.getText().equals(compa)) {
+                tblDetalleFac.setValueAt(cant, i, 3);
+                conteo=conteo+1;
+                limpiar();
+            }
+        }if(conteo==0){
+            Object[] fila = new Object[5];
+            fila[0] = txtIdProducto.getText();
+            fila[1] = txtProducto.getText();
+            fila[2] = txtPrecio.getText();
+            fila[3] = txtCantidad.getText();
+
+            modelo.addRow(fila);
+            tblDetalleFac.setModel(modelo);
+            Calcular();
+            limpiar();}
+        } else if (txtIdCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Debe de ingresar a un cliente");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Debe de ingresar producto");
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -579,17 +585,17 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
               + ", str_to_date('"+ cmbDate.getText() + "','%d/%m/%Y'))";
         System.out.println(datosFactura);
         ArrayList<String> itemsFactura = new ArrayList<>();
-        for (int i = 0; i < tblFactura.getRowCount(); i++) {
+        for (int i = 0; i < tblDetalleFac.getRowCount(); i++) {
             itemsFactura.add("insert into detallesfactura values("+ txtNumFactura.getText() + ","
-            + tblFactura.getValueAt(i, 0).toString() + "," 
-            + tblFactura.getValueAt(i, 3).toString() + "," 
-            + tblFactura.getValueAt(i, 2).toString() + ")");
-            itemsFactura.add("update producto set Cantidad = Cantidad - " + tblFactura.getValueAt(i, 3).toString()+ 
+            + tblDetalleFac.getValueAt(i, 0).toString() + "," 
+            + tblDetalleFac.getValueAt(i, 3).toString() + "," 
+            + tblDetalleFac.getValueAt(i, 2).toString() + ")");
+            itemsFactura.add("update producto set Cantidad = Cantidad - " + tblDetalleFac.getValueAt(i, 3).toString()+ 
                     " where IdProducto = " 
-                    + tblFactura.getValueAt(i, 0).toString());
+                    + tblDetalleFac.getValueAt(i, 0).toString());
         }
         System.out.println(itemsFactura.toString());
-//        FacturaDao.GuardarFactura(datosfactura, itemsFactura);
+        FacturaDao.GuardarFactura(datosFactura, itemsFactura);
         this.dispose();
         FacturaDao.cargarReporteFactura(txtNumFactura.getText());
     
@@ -689,8 +695,8 @@ public class frmFacturacion extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 public void generarNumeroFactura(){
     String sql = "SELECT IFNULL(MAX(NumeroFactura), 0) + 1 FROM factura";
-    FacturaDao.conectarBD();
-    ResultSet rs = FacturaDao.seleccionar(sql);
+    conexion.conectarBD();
+    ResultSet rs = conexion.seleccionar(sql);
     
     try {
         if(rs.next()){
@@ -701,11 +707,11 @@ public void generarNumeroFactura(){
     } catch (SQLException ex) {
         Logger.getLogger(frmFacturacion.class.getName()).log(Level.SEVERE,null, ex);
     }
-    FacturaDao.desconectarBD();
+    conexion.desconectarBD();
 }
 
     public void FiltrarDatos(){
-     Conexion conexion = new Conexion();
+     
         String sql;
         ResultSet rs;
         conexion.conectarBD();
@@ -758,16 +764,17 @@ public void generarNumeroFactura(){
     }
     
     public void noEditar(){
+        txtNumFactura.setEditable(false);
     txtIdProducto.setEditable(false);
     txtProducto.setEditable(false);
-    txtPrecio.setEditable(false);
+    txtCantidad.setEditable(false);
     txtPrecio.setEditable(false);
     
     }
     public void limpiar(){
     txtIdProducto.setText("");
     txtProducto.setText("");
-    txtPrecio.setText("");
+    txtCantidad.setText("");
     txtPrecio.setText("");;
     
     }

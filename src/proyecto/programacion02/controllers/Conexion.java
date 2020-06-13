@@ -87,13 +87,13 @@ public class Conexion {
         return rs;
     }
     
-    public synchronized void ejecutar(String sql) throws SQLException {
+    public synchronized void ejecutar(String sql)  {
         try {
             stmt = conexion.createStatement();
             stmt.executeUpdate(sql);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
-            throw ex;
+           
         }
     }
     
