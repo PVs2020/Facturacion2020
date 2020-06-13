@@ -1020,31 +1020,41 @@ public class frmProducto extends javax.swing.JInternalFrame {
 
     private void mnEnviarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEnviarDatosActionPerformed
         // TODO add your handling code here:
-                int fila = tblProducto.getSelectedRow();
+        int fila = tblProducto.getSelectedRow();
         try {
-            if(fila==-1)
-            {
+            if (fila == -1) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado ningun dato");
 
-            }
-            else
-            {
-               String id = tblProducto.getValueAt(fila, 0).toString();
-            Producto producto = productosDao.buscarProducto(id);
-            frmFacturacion.txtIdProducto.setText(producto.getIdProducto());
-            frmFacturacion.txtProducto.setText(producto.getNombreProducto());
-            frmFacturacion.txtCantidad.setText(Integer.toString(producto.getUnidadExistecia()));
-//            this.dispose();
-            
-            String cantidad = JOptionPane.showInputDialog("ingrese cantidad");
-            if(cantidad.equals("") || cantidad.equals("0") ){
-                JOptionPane.showMessageDialog(rootPane, "Debe de ingrese una cantidad");
-            }else{
-                //convierte el parametro string que ingreso en showInputDialogo a int
-                int cantConver =Integer.parseInt(cantidad);
-              //aqui como que hiria la restricion del inventario
-            }
-            
+            } else {
+                String id = tblProducto.getValueAt(fila, 0).toString();
+                Producto producto = productosDao.buscarProducto(id);
+
+                producto.getIdProducto();
+                producto.getNombreProducto();
+                producto.getUnidadExistecia();
+                producto.getPrecioUnidad();
+
+
+                String cantidad = JOptionPane.showInputDialog("ingrese cantidad");
+                if (cantidad.equals("") || cantidad.equals("0")) {
+                    JOptionPane.showMessageDialog(rootPane, "Debe de ingrese una cantidad");
+                } else {
+                    //convierte el parametro string que ingreso en showInputDialogo a int
+                    int cantConver = Integer.parseInt(cantidad);
+                    //aqui como que hiria la restricion del inventario
+                    int cantRegi = producto.getUnidadExistecia();;
+
+                    if (cantConver > cantRegi) {
+                        JOptionPane.showMessageDialog(rootPane, "Cantidad insuficiente en el inventario");
+                    } else {
+                        frmFacturacion.txtIdProducto.setText(producto.getIdProducto());
+                        frmFacturacion.txtProducto.setText(producto.getNombreProducto());
+                        frmFacturacion.txtCantidad.setText(Integer.toString(cantConver));
+                        frmFacturacion.txtPrecio.setText(Double.toString(producto.getPrecioUnidad()));
+                        this.dispose();
+
+                    }
+                }
 
             }
         } catch (Exception e) {
