@@ -3,9 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Daniel%20Jesús/Desktop/PROYECTO/Facturacion2020/src/proyecto/programacion02/views/frmProducto.java</file>
             <file>file:/C:/Users/Daniel%20Jesús/Desktop/PROYECTO/Facturacion2020/src/proyecto/programacion02/views/frmFacturacion.java</file>
             <file>file:/C:/Users/Daniel%20Jesús/Desktop/PROYECTO/Facturacion2020/src/proyecto/programacion02/controllers/PoolConexionMySql.java</file>
+=======
+            <file>file:/E:/ProyectoFinal/Nueva%20carpeta/Facturacion2020/src/proyecto/programacion02/views/Login.java</file>
+            <file>file:/E:/ProyectoFinal/Nueva%20carpeta/Facturacion2020/src/proyecto/programacion02/views/Principal.java</file>
+            <file>file:/E:/ProyectoFinal/Nueva%20carpeta/Facturacion2020/src/proyecto/programacion02/models/ProyectoFinalProgramacion02.java</file>
+            <file>file:/E:/ProyectoFinal/Nueva%20carpeta/Facturacion2020/src/proyecto/programacion02/controllers/UsuarioDAO.java</file>
+>>>>>>> f02c726398a35fdd92e831eaa939f6111f5a47d6
         </group>
     </open-files>
 </project-private>

@@ -5,6 +5,7 @@
  */
 package proyecto.programacion02.views;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import proyecto.programacion02.controllers.UsuarioDAO;
 import proyecto.programacion02.models.Usuario;
@@ -22,6 +23,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setSize(430, 557);
         this.setLocationRelativeTo(null);
+        ImageIcon icono = new javax.swing.ImageIcon(getClass().getResource("/img/vegetable.png"));
+        this.setIconImage(icono.getImage());
     }
 
     /**
@@ -59,7 +62,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnAceptar);
-        btnAceptar.setBounds(180, 500, 190, 40);
+        btnAceptar.setBounds(130, 460, 190, 40);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,7 +109,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ggg.png"))); // NOI18N
         getContentPane().add(jLabelFondo);
-        jLabelFondo.setBounds(0, 0, 430, 560);
+        jLabelFondo.setBounds(0, 0, 430, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
