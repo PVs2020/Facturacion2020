@@ -73,24 +73,23 @@ public class FacturaDAO extends Conexion{
         return listaProducto;
     }
 
-    public void cargarReporteFactura(String numeroFactura) {
-         conectarBD();
-        JasperReport reporte;
+    public void cargarReporteFactura() {
+        conectarBD();
+        JasperReport reportes = null;
         JasperPrint reporte_view;
+        URL in = this.getClass().getResource("/proyecto/programacion02/Reports/rptFactura.jasper");
         try {
-            URL in = this.getClass().getResource("/reportes/rptCliente.jasper");
-            reporte = (JasperReport) JRLoader.loadObject(in);
-            HashMap parametros = new HashMap();
-            parametros.clear();
-            parametros.put("numeroFactura", numeroFactura);
-            
-            reporte_view = JasperFillManager.fillReport(reporte, parametros, conexion);
-            JasperViewer.viewReport(reporte_view, false); } 
-        catch (JRException ex) {
-                System.err.println(ex.toString());
-                desconectarBD();
-            }
-    }public ResultSet cargarFactura() {
+            reportes = (JasperReport) JRLoader.loadObject(in);
+            reporte_view = JasperFillManager.fillReport(reportes, null, getConexion());
+            JasperViewer.viewReport(reporte_view, false);
+        } catch (JRException ex) {
+
+            System.err.println(ex.toString());
+        }
+
+    }
+    
+    public ResultSet cargarFactura() {
 
         try {
             obj_Procedimiento = getConexion().prepareCall("{Call buscarTodoNumFactura}");
@@ -132,8 +131,6 @@ public class FacturaDAO extends Conexion{
         }
         return rpt;
     }
-    
-    
     
     public Factura buscarFactura(String num){
         Factura factura = null;

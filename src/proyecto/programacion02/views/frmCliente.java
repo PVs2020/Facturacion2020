@@ -17,7 +17,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
      * Creates new form frmCliente
      */
     
-        ClienteDAO clienteDao;
+     ClienteDAO clienteDao;
         
     public frmCliente() {
         initComponents();

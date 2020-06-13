@@ -59,6 +59,7 @@ Usuario usuario;
         btnCategorias = new javax.swing.JButton();
         btnProducto = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         desk = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
@@ -77,6 +78,7 @@ Usuario usuario;
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,6 +162,19 @@ Usuario usuario;
         });
         jToolBar1.add(jButton2);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descripcion.png"))); // NOI18N
+        jButton3.setText("Ventas Realizadas ");
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton3);
+
         btnSalir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
         btnSalir.setText("Salir");
@@ -195,7 +210,6 @@ Usuario usuario;
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/7.png"))); // NOI18N
         jButton1.setText("Cerrar sesion");
-        jButton1.setActionCommand("Cerrar sesion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -306,6 +320,15 @@ Usuario usuario;
             }
         });
         jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/company.png"))); // NOI18N
+        jMenuItem5.setText("Acerca de ..");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
@@ -468,6 +491,17 @@ Usuario usuario;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+          JOptionPane.showMessageDialog(rootPane,"software desarrollado por " + 
+                  " Daniel Guitierrez, Reymond Ponce , Emanuel Quesada ","Acerca de..."+"Agradecimientos por parte T.I.C",
+                JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        frmVentas ven =  new frmVentas();
+        ValidarJInternalFrame(ven);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -516,6 +550,7 @@ Usuario usuario;
     public static javax.swing.JDesktopPane desk;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     public static javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -524,6 +559,7 @@ Usuario usuario;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;

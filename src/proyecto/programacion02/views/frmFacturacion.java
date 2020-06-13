@@ -105,9 +105,8 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
         txtCantidad = new javax.swing.JTextField();
         lblTotalDeta = new javax.swing.JLabel();
         lblTotalApagar = new javax.swing.JLabel();
-        btnExit = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         btnProcesarFactura = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
 
         tblFactura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -416,6 +415,13 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Precio:");
 
+        btnProcesarFactura.setText("Procesar Factura");
+        btnProcesarFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProcesarFacturaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -447,13 +453,18 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
                         .addComponent(btnBorrar)
                         .addGap(28, 28, 28))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 894, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
                                 .addComponent(lblTotalDeta, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(656, 656, 656)
-                                .addComponent(lblTotalApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 894, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblTotalApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(22, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnProcesarFactura)
+                .addGap(33, 33, 33))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,27 +488,15 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblTotalDeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTotalApagar, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                .addGap(0, 38, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProcesarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnExit.setText("Salir");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Facturas Registradas");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        btnProcesarFactura.setText("Procesar Factura");
-        btnProcesarFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProcesarFacturaActionPerformed(evt);
             }
         });
 
@@ -509,17 +508,10 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton3)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnProcesarFactura))
-                .addContainerGap())
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,12 +520,8 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnProcesarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton3)
-                .addGap(8, 8, 8))
+                .addGap(85, 85, 85))
         );
 
         pack();
@@ -586,10 +574,6 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbProductoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -618,32 +602,13 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
          detalle.setPrecio(Double.parseDouble(tblDetalleFac.getValueAt(i, 2).toString()));
         if(detallefacDao.buscarDetalle(factura.getNumeroFactura()) ==null){
         detallefacDao.guardarDetalle(detalle);
-        
-        
+        Vista();
         }
         }
         
         
     }
-//      String datosFactura = "insert into factura values("+ txtNumFactura.getText() + "," 
-//              + txtIdCliente.getText()
-//              + ", str_to_date('"+ cmbDate.getText() + "','%d-%m-%Y'))";
-//        System.out.println(datosFactura);
-//        ArrayList<String> itemsFactura = new ArrayList<>();
-//        for (int i = 0; i < tblDetalleFac.getRowCount(); i++) {
-//            itemsFactura.add("insert into detallesfactura values("+ txtNumFactura.getText() + ","
-//            + tblDetalleFac.getValueAt(i, 0).toString() + "," 
-//            + tblDetalleFac.getValueAt(i, 3).toString() + "," 
-//            + tblDetalleFac.getValueAt(i, 2).toString() + ")");
-//            itemsFactura.add("update producto set Cantidad = Cantidad - " + tblDetalleFac.getValueAt(i, 3).toString()+ 
-//                    " where IdProducto = " 
-//                    + tblDetalleFac.getValueAt(i, 0).toString());
-//        }
-//        System.out.println(itemsFactura.toString());
-//        FacturaDao.GuardarFactura(datosFactura, itemsFactura);
-//        this.dispose();
-//        FacturaDao.cargarReporteFactura(txtNumFactura.getText());
-        
+
     }//GEN-LAST:event_btnProcesarFacturaActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
@@ -700,7 +665,6 @@ DetalleFacturaDAO detallefacDao = new DetalleFacturaDAO();
     private javax.swing.JComboBox<String> cmbProducto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
