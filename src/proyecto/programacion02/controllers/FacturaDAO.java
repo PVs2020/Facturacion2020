@@ -90,5 +90,71 @@ public class FacturaDAO extends Conexion{
                 System.err.println(ex.toString());
                 desconectarBD();
             }
+    }public ResultSet cargarFactura() {
+
+        try {
+            obj_Procedimiento = getConexion().prepareCall("{Call buscarTodoNumFactura}");
+            rs = obj_Procedimiento.executeQuery();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return rs;
+    }
+    public boolean guardarFactura(Factura factura) {
+        boolean rpt = false;
+        try {
+            conectarBD();
+            obj_Procedimiento = getConexion().prepareCall("{CALL agregarFactura(?,?,?)}");
+            obj_Procedimiento.setString(1, factura.getNumeroFactura());
+            obj_Procedimiento.setString(2, factura.getFecha());
+            obj_Procedimiento.setString(3, factura.getIdCliente());
+            
+            rpt = obj_Procedimiento.executeUpdate() == 1;
+            desconectarBD();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return rpt;
+    }
+
+    public boolean editarFactura(Factura factura) {
+        boolean rpt = false;
+        try {
+            conectarBD();
+            obj_Procedimiento = getConexion().prepareCall("CALL editarFactura(?,?,?)");
+            obj_Procedimiento.setString(1, factura.getNumeroFactura());
+            obj_Procedimiento.setString(2, factura.getFecha());
+            obj_Procedimiento.setString(3, factura.getIdCliente());
+            rpt = obj_Procedimiento.executeUpdate() == 1;
+            desconectarBD();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return rpt;
+    }
+    
+    
+    
+    public Factura buscarFactura(String num){
+        Factura factura = null;
+        
+        try {
+            conectarBD();
+            obj_Procedimiento = getConexion().prepareCall("{CALL buscarNumFactura(?)}");
+            obj_Procedimiento.setString(1, num);
+            
+            rs =  obj_Procedimiento.executeQuery();
+            if(rs.next()){
+                factura = new Factura();
+                factura.setNumeroFactura(rs.getString(1));
+                factura.setFecha(rs.getString(2));
+                factura.setIdCliente(rs.getString(3));
+          
+            }
+            desconectarBD();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return factura;
     }
 }

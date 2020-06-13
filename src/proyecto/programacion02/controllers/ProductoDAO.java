@@ -124,6 +124,21 @@ public class ProductoDAO extends Conexion {
         }
         return rpt;
     }
+    public boolean Descontar(Producto producto) {
+        boolean rpt = false;
+        try {
+            conectarBD();
+            obj_Procedimiento = getConexion().prepareCall("CALL updateProducto(?)");
+            
+            obj_Procedimiento.setInt(4, producto.getUnidadExistecia());
+            
+            rpt = obj_Procedimiento.executeUpdate() == 1;
+            desconectarBD();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return rpt;
+    }
     
     public boolean eliminarProducto(String id){
         boolean rpt = false; 

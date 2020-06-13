@@ -92,7 +92,7 @@ public class Conexion {
             stmt = conexion.createStatement();
             stmt.executeUpdate(sql);
         } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
+//            System.err.println(ex.getMessage());
            
         }
     }
